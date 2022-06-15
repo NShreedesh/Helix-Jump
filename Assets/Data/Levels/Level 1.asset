@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfad254ee54123846a1defbdafa92c64, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  levelData:
+  - helixToSpawn: {fileID: 6956816899391750268, guid: 86f8e46d92e041b4e838e867e0b7e123, type: 3}
+    rotationY: 30
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 90
+  - helixToSpawn: {fileID: 6956816899391750268, guid: 86f8e46d92e041b4e838e867e0b7e123, type: 3}
+    rotationY: 270
