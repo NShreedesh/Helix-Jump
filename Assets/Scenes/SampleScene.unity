@@ -416,6 +416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStorage: {fileID: 11400000, guid: 470926d75d3ef98478bd4289c1ec5fe8, type: 2}
+  startHelix: {fileID: 6956816899391750268, guid: 86f8e46d92e041b4e838e867e0b7e123, type: 3}
+  endHelix: {fileID: 6956816899391750268, guid: 1d56e7cdd912efe4aaad6c5057338dde, type: 3}
   cylinderSize: 4
   spawnedHelixList: []
   ball: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}

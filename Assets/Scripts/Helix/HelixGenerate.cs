@@ -10,6 +10,10 @@ namespace Helix
         [SerializeField] 
         private LevelStorage levelStorage;
         [SerializeField] 
+        private GameObject startHelix;
+        [SerializeField] 
+        private GameObject endHelix;
+        [SerializeField] 
         private float cylinderSize = 4;
         [SerializeField] 
         private List<GameObject> spawnedHelixList;
@@ -28,7 +32,11 @@ namespace Helix
         private void Generate()
         {
             var thisTransform = transform;
-
+            
+            var spawnedStartHelix = Instantiate(startHelix, thisTransform.position, Quaternion.identity, thisTransform);
+            spawnedStartHelix.SetActive(false);
+            spawnedHelixList.Add(spawnedStartHelix);
+            
             foreach (var helix in levelStorage.levelData)
             {
                 var spawnedHelix = Instantiate(helix.helixToSpawn, thisTransform.position, Quaternion.identity, thisTransform);
@@ -36,6 +44,10 @@ namespace Helix
                 spawnedHelix.SetActive(false);
                 spawnedHelixList.Add(spawnedHelix);
             }
+            
+            var spawnedEndHelix = Instantiate(endHelix, thisTransform.position, Quaternion.identity, thisTransform);
+            spawnedEndHelix.SetActive(false);
+            spawnedHelixList.Add(spawnedEndHelix);
         }
 
         private void LevelMaking()
