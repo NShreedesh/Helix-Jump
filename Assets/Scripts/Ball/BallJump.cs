@@ -16,8 +16,12 @@ namespace Ball
         private float jumpForce;
         private bool _canJump = true;
 
-        [Header("Audio Manager Component")] 
+        [Header("Splash Effect")] 
         [SerializeField]
+        private GameObject[] splashSprites;
+
+        [Header("Audio Manager Component")] 
+        [HideInInspector]
         public AudioManager audioManager;
         
         [Header("Audio Clips")] 
