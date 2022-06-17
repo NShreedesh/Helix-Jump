@@ -14,7 +14,7 @@ namespace Ball
         [SerializeField] 
         private float jumpForce;
         private bool _canJump = true;
-        
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))

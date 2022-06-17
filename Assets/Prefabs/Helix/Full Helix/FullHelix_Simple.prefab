@@ -406,6 +406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_NonKill (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
       value: 10
