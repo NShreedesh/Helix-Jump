@@ -1,3 +1,4 @@
+using Audio;
 using Static;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,14 @@ namespace Ball
         private float jumpForce;
         private bool _canJump = true;
 
+        [Header("Audio Manager Component")] 
+        [SerializeField]
+        public AudioManager audioManager;
+        
+        [Header("Audio Clips")] 
+        [SerializeField] private AudioClip ballCollideAudioClip;
+        [SerializeField] private AudioClip pointScoredAudioClip;
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
@@ -23,6 +32,8 @@ namespace Ball
                 rb.velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 _canJump = false;
+                
+                audioManager.PlayOneShotAudio(ballCollideAudioClip);
             
                 Invoke(nameof(CheckJump), 0.2f);
             }
@@ -30,7 +41,7 @@ namespace Ball
             else if (collision.gameObject.CompareTag(TagManager.HelixKill))
             {
                 print("Dead");
-                SceneManager.LoadScene(0);
+                audioManager.PlayOneShotAudio(ballCollideAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
@@ -43,6 +54,7 @@ namespace Ball
         {
             if (other.gameObject.CompareTag(TagManager.HelixPoint))
             {
+                audioManager.PlayOneShotAudio(pointScoredAudioClip);
                 print("Point Scored");
             }
         }

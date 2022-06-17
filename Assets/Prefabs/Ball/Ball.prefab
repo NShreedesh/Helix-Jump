@@ -317,5 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
-  anim: {fileID: 204316159}
   jumpForce: 8
+  audioManager: {fileID: 0}
+  ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}
+  pointScoredAudioClip: {fileID: 8300000, guid: e1410713ecd9bf2459afdb13d7a88ca5, type: 3}

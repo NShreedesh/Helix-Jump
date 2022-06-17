@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Audio;
 using Ball;
 using Camera;
 using UnityEngine;
@@ -21,6 +22,9 @@ namespace Helix
         private BallJump ball;
         [SerializeField] 
         private CameraController cameraController;
+
+        [SerializeField] 
+        private AudioManager audioManager;
 
         private void Start()
         {
@@ -69,6 +73,7 @@ namespace Helix
             ballPosition.z = -2.7f;
             
             ballJumpTransform.position = ballPosition;
+            ballJump.audioManager = audioManager;
             
             cameraController.AssignTarget(ballJumpTransform);
         }
