@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Helix
+namespace Data_Scripts
 {
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Levels", order = 1)]
     public class LevelStorage : ScriptableObject

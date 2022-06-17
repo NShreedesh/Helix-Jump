@@ -1,7 +1,6 @@
 using Audio;
 using Static;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Ball
 {
@@ -18,7 +17,7 @@ namespace Ball
 
         [Header("Splash Effect")] 
         [SerializeField]
-        private GameObject[] splashSprites;
+        private ParticleSystem splashParticle;
 
         [Header("Audio Manager Component")] 
         [HideInInspector]
@@ -38,6 +37,11 @@ namespace Ball
                 _canJump = false;
                 
                 audioManager.PlayOneShotAudio(ballCollideAudioClip);
+
+                var v = collision.GetContact(0).point;
+                v.y += collision.collider.bounds.extents.y;
+                var spawnedSplashParticle = Instantiate(splashParticle, v, splashParticle.transform.rotation, collision.transform);
+                spawnedSplashParticle.Play();
             
                 Invoke(nameof(CheckJump), 0.2f);
             }

@@ -1081,6 +1081,11 @@ MonoBehaviour:
   ball: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
+  colorStorage: {fileID: 11400000, guid: 95256a71fc5d3f8499f62adea8a9df8e, type: 2}
+  ballMaterial: {fileID: 2100000, guid: de850ff024f8ba64b8a7f5a71e439c2c, type: 2}
+  nonKillHelixMaterial: {fileID: 2100000, guid: 18833f659820a0e44a6a6d2d79ba92e0, type: 2}
+  killHelixMaterial: {fileID: 2100000, guid: b674274b188d39947b07a997331ceb0e, type: 2}
+  levelCompleteHelixMaterial: {fileID: 2100000, guid: 8e4b29503e623974e805e585a459d03c, type: 2}
 --- !u!1 &1174805456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1259,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266628167}
   m_CullTransparentMesh: 1
+--- !u!1001 &1291575247
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5163318189158466444, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466444, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466444, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466447, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163318189158466546, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
+      propertyPath: m_Name
+      value: Splash Particle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97fe5c5b2c9d15f40ad01f00172c6ef6, type: 3}
 --- !u!1 &1878637559
 GameObject:
   m_ObjectHideFlags: 0

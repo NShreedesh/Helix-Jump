@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Audio;
 using Ball;
 using Camera;
+using Data_Scripts;
 using UnityEngine;
 
 namespace Helix
@@ -26,8 +27,21 @@ namespace Helix
         [SerializeField] 
         private AudioManager audioManager;
 
+        [Header("Color Change")] 
+        [SerializeField]
+        private ColorStorage colorStorage;
+        [SerializeField] 
+        private Material ballMaterial;
+        [SerializeField]
+        private Material nonKillHelixMaterial;
+        [SerializeField] 
+        private Material killHelixMaterial;
+        [SerializeField] 
+        private Material levelCompleteHelixMaterial;
+
         private void Start()
         {
+            SetColors();
             Generate();
             LevelMaking();
             SpawnBall();
@@ -76,6 +90,14 @@ namespace Helix
             ballJump.audioManager = audioManager;
             
             cameraController.AssignTarget(ballJumpTransform);
+        }
+
+        private void SetColors()
+        {
+            ballMaterial.color = colorStorage.colorData.ballColor;
+            nonKillHelixMaterial.color = colorStorage.colorData.nonKillHelixColor;
+            killHelixMaterial.color = colorStorage.colorData.killHelixColor;
+            levelCompleteHelixMaterial.color = colorStorage.colorData.levelCompleteHelixColor;
         }
     }
 }
