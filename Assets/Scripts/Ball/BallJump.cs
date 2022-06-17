@@ -1,4 +1,3 @@
-using System;
 using Static;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +20,6 @@ namespace Ball
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
             {
                 if(!_canJump) return;
-            
                 rb.velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 _canJump = false;

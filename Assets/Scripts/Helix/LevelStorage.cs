@@ -13,6 +13,22 @@ namespace Helix
     public class LevelData
     {
         public GameObject helixToSpawn;
-        public float rotationY;
+        public RotationY rotationY = RotationY.Zero;
+
+        public enum RotationY
+        {
+            Zero = 0,
+            Thirty = 30,
+            Sixty = 60,
+            Ninety = 90,
+            OneTwenty = 120,
+            OneFifty = 150,
+            OneEighty = 180,
+            TwoTen = 210,
+            TwoForty = 240,
+            TwoSeventy = 270,
+            ThreeHundred = 300,
+            ThreeThirty = 330
+        }
     }
 }

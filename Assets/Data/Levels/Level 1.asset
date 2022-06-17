@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelData:
   - helixToSpawn: {fileID: 2266642321543820821, guid: 0933883905516904e98769656a6afcc5, type: 3}
-    rotationY: 30
+    rotationY: 0
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 60
+  - helixToSpawn: {fileID: 2266642321543820821, guid: 0933883905516904e98769656a6afcc5, type: 3}
+    rotationY: 120
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 240
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 270
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 300
+  - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
+    rotationY: 330
   - helixToSpawn: {fileID: 2266642321543820821, guid: dd94d74f6754b394283c5351b6e2f3b7, type: 3}
     rotationY: 90
-  - helixToSpawn: {fileID: 2266642321543820821, guid: 0933883905516904e98769656a6afcc5, type: 3}
-    rotationY: 270

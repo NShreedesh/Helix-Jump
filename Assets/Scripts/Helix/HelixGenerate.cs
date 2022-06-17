@@ -40,7 +40,7 @@ namespace Helix
             foreach (var helix in levelStorage.levelData)
             {
                 var spawnedHelix = Instantiate(helix.helixToSpawn, thisTransform.position, Quaternion.identity, thisTransform);
-                spawnedHelix.transform.localEulerAngles = spawnedHelix.transform.rotation.eulerAngles + new Vector3(0, helix.rotationY, 0);
+                spawnedHelix.transform.localEulerAngles = spawnedHelix.transform.rotation.eulerAngles + new Vector3(0, (int)helix.rotationY, 0);
                 spawnedHelix.SetActive(false);
                 spawnedHelixList.Add(spawnedHelix);
             }
@@ -66,7 +66,7 @@ namespace Helix
             
             var ballJumpTransform = ballJump.transform;
             var ballPosition = ballJumpTransform.position;
-            ballPosition.z = 0.5f;
+            ballPosition.z = -2.7f;
             
             ballJumpTransform.position = ballPosition;
             

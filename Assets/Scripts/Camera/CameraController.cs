@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Camera
@@ -10,9 +11,16 @@ namespace Camera
         [SerializeField] 
         private Vector3 offset;
 
+        private void Start()
+        {
+            transform.position = offset;
+        }
+
         private void LateUpdate()
         {
             if(targetTransform.Equals(null)) return;
+            if(targetTransform.position.y > transform.position.y - offset.y) return;
+            
             transform.position = targetTransform.position + offset;
         }
 
