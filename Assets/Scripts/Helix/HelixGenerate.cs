@@ -94,10 +94,11 @@ namespace Helix
 
         private void SetColors()
         {
-            ballMaterial.color = colorStorage.colorData.ballColor;
-            nonKillHelixMaterial.color = colorStorage.colorData.nonKillHelixColor;
-            killHelixMaterial.color = colorStorage.colorData.killHelixColor;
-            levelCompleteHelixMaterial.color = colorStorage.colorData.levelCompleteHelixColor;
+            var randomColorArray = Random.Range(0, colorStorage.colorData.Length);
+            ballMaterial.color = colorStorage.colorData[randomColorArray].ballColor;
+            nonKillHelixMaterial.color = colorStorage.colorData[randomColorArray].nonKillHelixColor;
+            killHelixMaterial.color = colorStorage.colorData[randomColorArray].killHelixColor;
+            levelCompleteHelixMaterial.color = colorStorage.colorData[randomColorArray].levelCompleteHelixColor;
         }
     }
 }

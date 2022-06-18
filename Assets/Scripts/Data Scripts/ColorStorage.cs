@@ -6,7 +6,7 @@ namespace Data_Scripts
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Colors", order = 1)]
     public class ColorStorage : ScriptableObject
     {
-        public ColorData colorData;
+        public ColorData[] colorData;
     }
 
     [Serializable]
