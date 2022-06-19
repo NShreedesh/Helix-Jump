@@ -26,7 +26,7 @@ namespace Score
         {
             score += scoreIncrementValue;
             ChangeScoreUI(scoreText, score);
-            SaveScore(score);
+            SaveScore();
         }
 
         private void LoadHighScore()
@@ -37,7 +37,7 @@ namespace Score
             ChangeScoreUI(highScoreText, highScore);
         }
 
-        private void SaveScore(int updateScore)
+        private void SaveScore()
         {
             if (score <= highScore) return;
 
