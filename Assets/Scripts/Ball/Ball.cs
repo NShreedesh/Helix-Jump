@@ -1,10 +1,11 @@
 using Audio;
+using Score;
 using Static;
 using UnityEngine;
 
 namespace Ball
 {
-    public class BallJump : MonoBehaviour
+    public class Ball : MonoBehaviour
     {
         [Header("Components")]
         [SerializeField] 
@@ -26,6 +27,16 @@ namespace Ball
         [Header("Audio Clips")] 
         [SerializeField] private AudioClip ballCollideAudioClip;
         [SerializeField] private AudioClip pointScoredAudioClip;
+
+        [SerializeField] 
+        private ScoreManager scoreManager;
+        [SerializeField]
+        private int scoreIncrementValue = 10;
+
+        private void Start()
+        {
+            scoreManager = GameObject.FindGameObjectWithTag(TagManager.ScoreManager).GetComponent<ScoreManager>();
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -63,7 +74,7 @@ namespace Ball
             if (other.gameObject.CompareTag(TagManager.HelixPoint))
             {
                 audioManager.PlayOneShotAudio(pointScoredAudioClip);
-                print("Point Scored");
+                scoreManager.UpdateScore(scoreIncrementValue);
             }
         }
 

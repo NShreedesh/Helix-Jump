@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 504031472}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,4 +322,5 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}
   pointScoredAudioClip: {fileID: 8300000, guid: e1410713ecd9bf2459afdb13d7a88ca5, type: 3}
-  anim: {fileID: 204316159}
+  scoreManager: {fileID: 0}
+  scoreIncrementValue: 10

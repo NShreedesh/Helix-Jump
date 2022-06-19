@@ -20,7 +20,7 @@ namespace Helix
         [SerializeField] 
         private List<GameObject> spawnedHelixList;
         [SerializeField] 
-        private BallJump ball;
+        private Ball.Ball ball;
         [SerializeField] 
         private CameraController cameraController;
 
