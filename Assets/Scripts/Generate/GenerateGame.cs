@@ -3,6 +3,7 @@ using Audio;
 using Ball_Scripts;
 using Camera;
 using Data_Scripts;
+using Score;
 using UnityEngine;
 
 namespace Generate
@@ -29,10 +30,12 @@ namespace Generate
         [SerializeField] 
         private CameraController cameraController;
 
-        [Header("Audio Info")]
+        [Header("Manager Info")]
         [SerializeField] 
         private AudioManager audioManager;
-        
+        [SerializeField] 
+        private ScoreManager scoreManager;
+
         private void Start()
         {
             Generate();
@@ -81,7 +84,8 @@ namespace Generate
             
             ballJumpTransform.position = ballPosition;
             
-            ball.audioManager = audioManager;
+            ball.SetAudioManager(audioManager);
+            ball.SetScoreManager(scoreManager);
             cameraController.AssignTarget(ballJumpTransform);
         }
     }

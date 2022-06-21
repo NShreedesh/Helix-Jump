@@ -1129,6 +1129,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
+  scoreManager: {fileID: 426231858}
 --- !u!1 &1174805456
 GameObject:
   m_ObjectHideFlags: 0
