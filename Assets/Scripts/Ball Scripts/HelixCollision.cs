@@ -1,5 +1,8 @@
+using System;
 using Static;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Ball_Scripts
 {
@@ -29,10 +32,10 @@ namespace Ball_Scripts
             {
                 if(!_canJump) return;
                 
-                Jump(collision);
+                Jump();
                 SplashEffect(collision);
                 ball.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
-
+        
                 Invoke(nameof(CheckJump), 0.2f);
             }
             
@@ -47,10 +50,10 @@ namespace Ball_Scripts
                 print("Level Completed");
             }
         }
-
-        private void Jump(Collision collision)
+        
+        private void Jump()
         {
-            print(collision.GetContact(0).normal);
+            // print(collision.GetContact(0).normal);
             
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -60,7 +63,7 @@ namespace Ball_Scripts
         private void SplashEffect(Collision collision)
         {
             var randomSplashEffect = Random.Range(0, splashParticles.Length);
-
+        
             var v = collision.GetContact(0).point;
             v.y += collision.collider.bounds.extents.y;
             var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
