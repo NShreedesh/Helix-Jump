@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Ball
+namespace Ball_Scripts
 {
     public class BallAnimation : MonoBehaviour
     {

@@ -1,10 +1,9 @@
-using System;
 using Audio;
 using Score;
 using Static;
 using UnityEngine;
 
-namespace Ball
+namespace Ball_Scripts
 {
     public class Ball : MonoBehaviour
     {
@@ -19,7 +18,7 @@ namespace Ball
 
         [Header("Splash Effect")] 
         [SerializeField]
-        private ParticleSystem splashParticle;
+        private ParticleSystem[] splashParticles;
 
         [Header("Audio Manager Component")] 
         [HideInInspector]
@@ -47,12 +46,14 @@ namespace Ball
                 rb.velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 _canJump = false;
+
+                var randomSplashEffect = Random.Range(0, splashParticles.Length);
                 
                 audioManager.PlayOneShotAudio(ballCollideAudioClip);
 
                 var v = collision.GetContact(0).point;
                 v.y += collision.collider.bounds.extents.y;
-                var spawnedSplashParticle = Instantiate(splashParticle, v, splashParticle.transform.rotation, collision.transform);
+                var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
                 spawnedSplashParticle.Play();
             
                 Invoke(nameof(CheckJump), 0.2f);

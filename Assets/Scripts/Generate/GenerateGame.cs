@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using Audio;
-using Ball;
+using Ball_Scripts;
 using Camera;
 using Data_Scripts;
 using UnityEngine;
 
-namespace Helix
+namespace Generate
 {
-    public class HelixGenerate : MonoBehaviour
+    public class GenerateGame : MonoBehaviour
     {
+        [Header("Helix Info")]
         [SerializeField] 
         private LevelStorage levelStorage;
         [SerializeField] 
@@ -19,29 +20,21 @@ namespace Helix
         private float cylinderSize = 4;
         [SerializeField] 
         private List<GameObject> spawnedHelixList;
+        
+        [Header("Ball Info")]
         [SerializeField] 
-        private Ball.Ball ball;
+        private Ball ballPrefab;
+        
+        [Header("Camera Info")]
         [SerializeField] 
         private CameraController cameraController;
 
+        [Header("Audio Info")]
         [SerializeField] 
         private AudioManager audioManager;
-
-        [Header("Color Change")] 
-        [SerializeField]
-        private ColorStorage colorStorage;
-        [SerializeField] 
-        private Material ballMaterial;
-        [SerializeField]
-        private Material nonKillHelixMaterial;
-        [SerializeField] 
-        private Material killHelixMaterial;
-        [SerializeField] 
-        private Material levelCompleteHelixMaterial;
-
+        
         private void Start()
         {
-            SetColors();
             Generate();
             LevelMaking();
             SpawnBall();
@@ -80,25 +73,16 @@ namespace Helix
 
         private void SpawnBall()
         {
-            var ballJump = Instantiate(ball, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            var ball = Instantiate(ballPrefab, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             
-            var ballJumpTransform = ballJump.transform;
+            var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;
             ballPosition.z = -2.7f;
             
             ballJumpTransform.position = ballPosition;
-            ballJump.audioManager = audioManager;
             
+            ball.audioManager = audioManager;
             cameraController.AssignTarget(ballJumpTransform);
-        }
-
-        private void SetColors()
-        {
-            var randomColorArray = Random.Range(0, colorStorage.colorData.Length);
-            ballMaterial.color = colorStorage.colorData[randomColorArray].ballColor;
-            nonKillHelixMaterial.color = colorStorage.colorData[randomColorArray].nonKillHelixColor;
-            killHelixMaterial.color = colorStorage.colorData[randomColorArray].killHelixColor;
-            levelCompleteHelixMaterial.color = colorStorage.colorData[randomColorArray].levelCompleteHelixColor;
         }
     }
 }

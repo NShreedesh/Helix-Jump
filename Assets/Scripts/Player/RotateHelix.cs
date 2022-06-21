@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerController : MonoBehaviour
+    public class RotateHelix : MonoBehaviour
     {
         [Header("Other Components")] 
         [SerializeField]

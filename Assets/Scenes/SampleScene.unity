@@ -282,7 +282,7 @@ Transform:
   m_Children:
   - {fileID: 47332505}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65623489
 MonoBehaviour:
@@ -499,7 +499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &426231858
 MonoBehaviour:
@@ -698,7 +698,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &646703523
 MonoBehaviour:
@@ -758,7 +758,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -937,7 +937,7 @@ RectTransform:
   m_Children:
   - {fileID: 1878637560}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1053,7 +1053,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1107,7 +1107,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &998920972
 MonoBehaviour:
@@ -1126,14 +1126,9 @@ MonoBehaviour:
   endHelix: {fileID: 2266642321543820821, guid: 37dd0eaa1bc3cff40a2fd0ab1d561dbb, type: 3}
   cylinderSize: 4
   spawnedHelixList: []
-  ball: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
+  ballPrefab: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
-  colorStorage: {fileID: 11400000, guid: 95256a71fc5d3f8499f62adea8a9df8e, type: 2}
-  ballMaterial: {fileID: 2100000, guid: de850ff024f8ba64b8a7f5a71e439c2c, type: 2}
-  nonKillHelixMaterial: {fileID: 2100000, guid: 18833f659820a0e44a6a6d2d79ba92e0, type: 2}
-  killHelixMaterial: {fileID: 2100000, guid: b674274b188d39947b07a997331ceb0e, type: 2}
-  levelCompleteHelixMaterial: {fileID: 2100000, guid: 8e4b29503e623974e805e585a459d03c, type: 2}
 --- !u!1 &1174805456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1302,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266628167}
   m_CullTransparentMesh: 1
+--- !u!1 &1596559573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596559574}
+  - component: {fileID: 1596559575}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596559574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596559573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596559575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596559573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aecabaf4149c96048b7a76d2264b39e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorStorage: {fileID: 11400000, guid: 95256a71fc5d3f8499f62adea8a9df8e, type: 2}
+  ballMaterial: {fileID: 2100000, guid: de850ff024f8ba64b8a7f5a71e439c2c, type: 2}
+  nonKillHelixMaterial: {fileID: 2100000, guid: 18833f659820a0e44a6a6d2d79ba92e0, type: 2}
+  killHelixMaterial: {fileID: 2100000, guid: b674274b188d39947b07a997331ceb0e, type: 2}
+  levelCompleteHelixMaterial: {fileID: 2100000, guid: 8e4b29503e623974e805e585a459d03c, type: 2}
 --- !u!1 &1878637559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,3 +1389,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: 220}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &2061052710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061052712}
+  - component: {fileID: 2061052711}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2061052711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061052710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6747fd7107877864eb0a1629ac348564, type: 2}
+--- !u!4 &2061052712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061052710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
