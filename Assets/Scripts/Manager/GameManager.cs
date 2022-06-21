@@ -17,6 +17,8 @@ namespace Manager
         private Material killHelixMaterial;
         [SerializeField] 
         private Material levelCompleteHelixMaterial;
+        
+        public Color32 SplashColor { get; private set; }
 
         private void Start()
         {
@@ -30,6 +32,8 @@ namespace Manager
             nonKillHelixMaterial.color = colorStorage.colorData[randomColorArray].nonKillHelixColor;
             killHelixMaterial.color = colorStorage.colorData[randomColorArray].killHelixColor;
             levelCompleteHelixMaterial.color = colorStorage.colorData[randomColorArray].levelCompleteHelixColor;
+
+            SplashColor = ballMaterial.color;
         }
     }
 }

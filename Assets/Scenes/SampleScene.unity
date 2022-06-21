@@ -1130,6 +1130,7 @@ MonoBehaviour:
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
   scoreManager: {fileID: 426231858}
+  gameManager: {fileID: 1596559575}
 --- !u!1 &1174805456
 GameObject:
   m_ObjectHideFlags: 0

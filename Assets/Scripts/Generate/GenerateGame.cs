@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Audio;
 using Ball_Scripts;
 using Camera;
 using Data_Scripts;
+using Manager;
 using Score;
 using UnityEngine;
 
@@ -35,6 +35,8 @@ namespace Generate
         private AudioManager audioManager;
         [SerializeField] 
         private ScoreManager scoreManager;
+        [SerializeField] 
+        private GameManager gameManager;
 
         private void Start()
         {
@@ -80,12 +82,13 @@ namespace Generate
             
             var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;
-            ballPosition.z = -2.7f;
+            ballPosition.z = -2.3f;
             
             ballJumpTransform.position = ballPosition;
             
             ball.SetAudioManager(audioManager);
             ball.SetScoreManager(scoreManager);
+            ball.SetSplashColor(gameManager.SplashColor);
             cameraController.AssignTarget(ballJumpTransform);
         }
     }

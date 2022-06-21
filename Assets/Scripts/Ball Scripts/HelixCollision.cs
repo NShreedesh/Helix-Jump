@@ -28,19 +28,11 @@ namespace Ball_Scripts
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
             {
                 if(!_canJump) return;
-                rb.velocity = Vector3.zero;
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                _canJump = false;
-
-                var randomSplashEffect = Random.Range(0, splashParticles.Length);
                 
+                Jump(collision);
+                SplashEffect(collision);
                 ball.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
 
-                var v = collision.GetContact(0).point;
-                v.y += collision.collider.bounds.extents.y;
-                var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
-                spawnedSplashParticle.Play();
-            
                 Invoke(nameof(CheckJump), 0.2f);
             }
             
@@ -54,6 +46,29 @@ namespace Ball_Scripts
             {
                 print("Level Completed");
             }
+        }
+
+        private void Jump(Collision collision)
+        {
+            print(collision.GetContact(0).normal);
+            
+            rb.velocity = Vector3.zero;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _canJump = false;
+        }
+
+        private void SplashEffect(Collision collision)
+        {
+            var randomSplashEffect = Random.Range(0, splashParticles.Length);
+
+            var v = collision.GetContact(0).point;
+            v.y += collision.collider.bounds.extents.y;
+            var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
+            
+            var main = spawnedSplashParticle.main;
+            main.startColor = new ParticleSystem.MinMaxGradient(ball.SplashColor);
+            
+            spawnedSplashParticle.Play();
         }
         
         private void CheckJump() => _canJump = true;
