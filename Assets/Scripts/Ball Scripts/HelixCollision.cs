@@ -1,6 +1,5 @@
-using System;
+using Manager;
 using Static;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,11 +20,12 @@ namespace Ball_Scripts
         
         [Header("Audio Clips")] 
         [SerializeField] private AudioClip ballCollideAudioClip;
+        [SerializeField] private AudioClip deadAudioClip;
         
         [Header("Splash Effect")] 
         [SerializeField]
         private ParticleSystem[] splashParticles;
-        
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
@@ -41,20 +41,18 @@ namespace Ball_Scripts
             
             else if (collision.gameObject.CompareTag(TagManager.HelixKill))
             {
-                print("Dead");
-                ball.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
+                Die();
+                ball.AudioManager.PlayOneShotAudio(deadAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
             {
-                print("Level Completed");
+                LevelComplete();
             }
         }
         
         private void Jump()
         {
-            // print(collision.GetContact(0).normal);
-            
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             _canJump = false;
@@ -72,6 +70,16 @@ namespace Ball_Scripts
             main.startColor = new ParticleSystem.MinMaxGradient(ball.SplashColor);
             
             spawnedSplashParticle.Play();
+        }
+
+        private void Die()
+        {
+            ball.GameManager.ChangeGameState(GameManager.GameState.Lose);
+        }
+        
+        private void LevelComplete()
+        {
+            ball.GameManager.ChangeGameState(GameManager.GameState.Win);
         }
         
         private void CheckJump() => _canJump = true;

@@ -351,6 +351,7 @@ MonoBehaviour:
   ball: {fileID: 504031472}
   jumpForce: 7
   ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}
+  deadAudioClip: {fileID: 8300000, guid: 02383e7ba79a11248ac266ccc49932a0, type: 3}
   splashParticles:
   - {fileID: 3096424587659738589, guid: 132b097a786985844840f3a64e75d9aa, type: 3}
   - {fileID: 5338025137496055635, guid: 88d7299c6cb682f4580dfab57ed5cb43, type: 3}
@@ -367,8 +368,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 504031472}
-  rb: {fileID: -974920207406477246}
-  force: 500
-  radius: 100
-  pointScoredAudioClip: {fileID: 8300000, guid: e1410713ecd9bf2459afdb13d7a88ca5, type: 3}
+  pointScoredAudioClip: {fileID: 8300000, guid: f2951b543d0bb6846bc54a0d941a77a8, type: 3}
   scoreIncrementValue: 10

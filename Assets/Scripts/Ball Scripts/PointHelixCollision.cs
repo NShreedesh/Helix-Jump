@@ -26,7 +26,6 @@ namespace Ball_Scripts
             ball.ScoreManager.UpdateScore(scoreIncrementValue);
 
             if(!other.transform.parent.TryGetComponent<Cylinder>(out var cylinder)) return;
-
             cylinder.DamageIfPointIsScored();
         }
     }

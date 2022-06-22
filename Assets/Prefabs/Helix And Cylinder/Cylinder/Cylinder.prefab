@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  upForce: 0
+  upForce: 20
 --- !u!114 &8486681526451530925
 MonoBehaviour:
   m_ObjectHideFlags: 0

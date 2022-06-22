@@ -38,9 +38,11 @@ namespace Cylinder_Scripts
                 rb.useGravity = true;
                 rb.transform.parent = null;
                 rb.velocity = Vector3.zero;
-                rb.AddExplosionForce(force, transform.position, 0, upForce, ForceMode.Impulse);
-                
-                Destroy(rb.gameObject, 2);
+
+                rb.AddExplosionForce(force, transform.position, 100, 0, ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, upForce, 0), ForceMode.Impulse);
+
+                Destroy(rb.gameObject, 1);
             }
             
             foreach (var go in _pointHelixes)

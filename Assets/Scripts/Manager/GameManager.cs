@@ -1,39 +1,72 @@
-using Data_Scripts;
+using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Manager
 {
     public class GameManager : MonoBehaviour
     {
-        [Header("Color Change")] 
         [SerializeField]
-        private ColorStorage colorStorage;
-        [SerializeField] 
-        private Material ballMaterial;
-        [SerializeField]
-        private Material nonKillHelixMaterial;
-        [SerializeField] 
-        private Material killHelixMaterial;
-        [SerializeField] 
-        private Material levelCompleteHelixMaterial;
-        
-        public Color32 SplashColor { get; private set; }
+        private GameState gameState;
+
+        public Action GameIdleAction;
+        public Action GamePlayingAction;
+        public Action GameLoseAction;
+        public Action GameWinAction;
 
         private void Start()
         {
-            SetColors();
+            gameState = GameState.Idle;
+        }
+
+        public void ChangeGameState(GameState state)
+        {
+            gameState = state;
+
+            switch (gameState)
+            {
+                case GameState.Idle:
+                    IdleAction();
+                    break;
+                case GameState.Playing:
+                    PlayingAction();
+                    break;
+                case GameState.Win:
+                    WinAction();
+                    break;
+                case GameState.Lose:
+                    LoseAction();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void IdleAction()
+        {
+            GameIdleAction?.Invoke();
+        }
+
+        private void PlayingAction()
+        {
+            GamePlayingAction?.Invoke();
+        }
+
+        private void WinAction()
+        {
+            GameWinAction?.Invoke();
+        }
+
+        private void LoseAction()
+        {
+            GameLoseAction?.Invoke();
         }
         
-        private void SetColors()
+        public enum GameState
         {
-            var randomColorArray = Random.Range(0, colorStorage.colorData.Length);
-            ballMaterial.color = colorStorage.colorData[randomColorArray].ballColor;
-            nonKillHelixMaterial.color = colorStorage.colorData[randomColorArray].nonKillHelixColor;
-            killHelixMaterial.color = colorStorage.colorData[randomColorArray].killHelixColor;
-            levelCompleteHelixMaterial.color = colorStorage.colorData[randomColorArray].levelCompleteHelixColor;
-
-            SplashColor = ballMaterial.color;
+            Idle,
+            Playing,
+            Win,
+            Lose,
         }
     }
 }

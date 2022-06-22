@@ -36,6 +36,8 @@ namespace Generate
         [SerializeField] 
         private ScoreManager scoreManager;
         [SerializeField] 
+        private GameColorManager gameColorManager;
+        [SerializeField]
         private GameManager gameManager;
 
         private void Start()
@@ -88,8 +90,11 @@ namespace Generate
             
             ball.SetAudioManager(audioManager);
             ball.SetScoreManager(scoreManager);
-            ball.SetSplashColor(gameManager.SplashColor);
+            ball.SetSplashColor(gameColorManager.SplashColor);
+            ball.SetGameManager(gameManager);
             cameraController.AssignTarget(ballJumpTransform);
+            
+            gameManager.ChangeGameState(GameManager.GameState.Playing);
         }
     }
 }
