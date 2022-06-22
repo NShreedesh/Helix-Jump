@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Cylinder_Scripts
 {
     public class RotateHelix : MonoBehaviour
     {

@@ -35,7 +35,7 @@ namespace Ball_Scripts
                 Jump();
                 SplashEffect(collision);
                 ball.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
-        
+            
                 Invoke(nameof(CheckJump), 0.2f);
             }
             

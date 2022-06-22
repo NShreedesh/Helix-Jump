@@ -1,4 +1,4 @@
-using Player;
+using Cylinder_Scripts;
 using Static;
 using UnityEngine;
 
@@ -25,13 +25,9 @@ namespace Ball_Scripts
             ball.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
             ball.ScoreManager.UpdateScore(scoreIncrementValue);
 
-            var rotateHelix = other.GetComponentInParent<RotateHelix>();
-            if (rotateHelix == null) return;
+            if(!other.transform.parent.TryGetComponent<Cylinder>(out var cylinder)) return;
 
-            for (var i = 0; i < rotateHelix.transform.childCount; i++)
-            {
-                Destroy(rotateHelix.transform.GetChild(i).gameObject);
-            }
+            cylinder.DamageIfPointIsScored();
         }
     }
 }

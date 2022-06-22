@@ -367,5 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 504031472}
+  rb: {fileID: -974920207406477246}
+  force: 500
+  radius: 100
   pointScoredAudioClip: {fileID: 8300000, guid: e1410713ecd9bf2459afdb13d7a88ca5, type: 3}
   scoreIncrementValue: 10

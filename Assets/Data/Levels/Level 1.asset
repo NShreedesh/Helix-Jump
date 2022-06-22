@@ -13,21 +13,19 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   levelData:
-  - helixToSpawn: {fileID: 3845252423473546027, guid: 03e0330855da8734ca05c71a7f373c12, type: 3}
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
     rotationY: 240
-  - helixToSpawn: {fileID: 2981167371533961530, guid: ed17f8744bfd09d45b522fa6ae143c50, type: 3}
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
     rotationY: 60
-  - helixToSpawn: {fileID: 3845252423473546027, guid: 03e0330855da8734ca05c71a7f373c12, type: 3}
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
     rotationY: 0
-  - helixToSpawn: {fileID: 3218212877807615785, guid: 7664a830fbe0860459bac1536e16d3a6, type: 3}
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
     rotationY: 30
-  - helixToSpawn: {fileID: 3218212877807615785, guid: 7664a830fbe0860459bac1536e16d3a6, type: 3}
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
     rotationY: 330
-  - helixToSpawn: {fileID: 3218212877807615785, guid: 7664a830fbe0860459bac1536e16d3a6, type: 3}
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
     rotationY: 180
-  - helixToSpawn: {fileID: 3845252423473546027, guid: 03e0330855da8734ca05c71a7f373c12, type: 3}
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
     rotationY: 150
-  - helixToSpawn: {fileID: 3218212877807615785, guid: 7664a830fbe0860459bac1536e16d3a6, type: 3}
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
     rotationY: 300
-  - helixToSpawn: {fileID: 3845252423473546027, guid: 03e0330855da8734ca05c71a7f373c12, type: 3}
-    rotationY: 60
