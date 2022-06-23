@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 998920973}
-  speed: 80
+  speed: 8
 --- !u!1 &1048256395
 GameObject:
   m_ObjectHideFlags: 0
