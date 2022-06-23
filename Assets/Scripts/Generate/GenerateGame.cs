@@ -24,7 +24,7 @@ namespace Generate
         
         [Header("Ball Info")]
         [SerializeField] 
-        private Ball ballPrefab;
+        private BallSetup ballSetup;
         
         [Header("Camera Info")]
         [SerializeField] 
@@ -80,7 +80,7 @@ namespace Generate
 
         private void SpawnBall()
         {
-            var ball = Instantiate(ballPrefab, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            var ball = Instantiate(ballSetup, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             
             var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;
@@ -94,7 +94,7 @@ namespace Generate
             ball.SetGameManager(gameManager);
             cameraController.AssignTarget(ballJumpTransform);
             
-            gameManager.ChangeGameState(GameManager.GameState.Playing);
+            gameManager.ChangeGameState(GameManager.State.Playing);
         }
     }
 }

@@ -1,5 +1,7 @@
 using Manager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -15,12 +17,21 @@ namespace UI
         [SerializeField] 
         private RectTransform gameWinUI;
 
+        [Header("WinLose Buttons")] 
+        [SerializeField]
+        private Button startAgainButton;
+        [SerializeField]
+        private Button nextLevelButton;
+
         private void Start()
         {
             gameManager.GameIdleAction += NoWinLoseUI;
             gameManager.GamePlayingAction += NoWinLoseUI;
             gameManager.GameLoseAction += LoseStateOn;
             gameManager.GameWinAction += WinStateOn;
+            
+            startAgainButton.onClick.AddListener(LoadLevel);
+            nextLevelButton.onClick.AddListener(LoadLevel);
         }
         
         private void NoWinLoseUI()
@@ -38,11 +49,19 @@ namespace UI
         {
             gameWinUI.gameObject.SetActive(true);
         }
+
+        private void LoadLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         
         private void OnDisable()
         {
             gameManager.GameLoseAction -= LoseStateOn;
             gameManager.GameWinAction -= WinStateOn;
+            
+            startAgainButton.onClick.RemoveAllListeners();
+            nextLevelButton.onClick.RemoveAllListeners();
         }
 
     }

@@ -8,7 +8,7 @@ namespace Ball_Scripts
     {
         [Header("Components")] 
         [SerializeField]
-        private Ball ball;
+        private BallSetup ballSetup;
         
         [Header("Audio Clips")]
         [SerializeField] 
@@ -22,8 +22,8 @@ namespace Ball_Scripts
         {
             if (!other.gameObject.CompareTag(TagManager.HelixPoint)) return;
             
-            ball.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
-            ball.ScoreManager.UpdateScore(scoreIncrementValue);
+            ballSetup.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
+            ballSetup.ScoreManager.UpdateScore(scoreIncrementValue);
 
             if(!other.transform.parent.TryGetComponent<Cylinder>(out var cylinder)) return;
             cylinder.DamageIfPointIsScored();

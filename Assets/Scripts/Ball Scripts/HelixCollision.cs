@@ -11,7 +11,7 @@ namespace Ball_Scripts
         [SerializeField] 
         private Rigidbody rb;
         [SerializeField] 
-        private Ball ball;
+        private BallSetup ballSetup;
 
         [Header("Ball Jump Values")]
         [SerializeField] 
@@ -31,10 +31,11 @@ namespace Ball_Scripts
             if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
             {
                 if(!_canJump) return;
+                if(ballSetup.GameManager.GameState != GameManager.State.Playing) return;
                 
                 Jump();
                 SplashEffect(collision);
-                ball.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
+                ballSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
             
                 Invoke(nameof(CheckJump), 0.2f);
             }
@@ -42,7 +43,7 @@ namespace Ball_Scripts
             else if (collision.gameObject.CompareTag(TagManager.HelixKill))
             {
                 Die();
-                ball.AudioManager.PlayOneShotAudio(deadAudioClip);
+                ballSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
@@ -67,22 +68,30 @@ namespace Ball_Scripts
             var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
             
             var main = spawnedSplashParticle.main;
-            main.startColor = new ParticleSystem.MinMaxGradient(ball.SplashColor);
+            main.startColor = new ParticleSystem.MinMaxGradient(ballSetup.SplashColor);
             
             spawnedSplashParticle.Play();
         }
 
         private void Die()
         {
-            ball.GameManager.ChangeGameState(GameManager.GameState.Lose);
+            StopBallJump();
+            ballSetup.GameManager.ChangeGameState(GameManager.State.Lose);
         }
         
         private void LevelComplete()
         {
-            ball.GameManager.ChangeGameState(GameManager.GameState.Win);
+            StopBallJump();
+            ballSetup.GameManager.ChangeGameState(GameManager.State.Win);
         }
         
         private void CheckJump() => _canJump = true;
+
+        private void StopBallJump()
+        {
+            rb.velocity = Vector3.zero;
+            jumpForce = 0;
+        }
         
         private void OnDisable() => CancelInvoke();
     }

@@ -6,7 +6,16 @@ namespace Manager
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
-        private GameState gameState;
+        private State gameState;
+        public State GameState
+        {
+            get => gameState;
+            private set
+            {
+                gameState = value;
+                ChangeGameState(gameState);
+            }
+        }
 
         public Action GameIdleAction;
         public Action GamePlayingAction;
@@ -15,25 +24,30 @@ namespace Manager
 
         private void Start()
         {
-            gameState = GameState.Idle;
+            gameState = State.Idle;
         }
 
-        public void ChangeGameState(GameState state)
+        private void OnValidate()
         {
-            gameState = state;
+            ChangeGameState(gameState);
+        }
+
+        public void ChangeGameState(State state)
+        {
+            this.gameState = state;
 
             switch (gameState)
             {
-                case GameState.Idle:
+                case State.Idle:
                     IdleAction();
                     break;
-                case GameState.Playing:
+                case State.Playing:
                     PlayingAction();
                     break;
-                case GameState.Win:
+                case State.Win:
                     WinAction();
                     break;
-                case GameState.Lose:
+                case State.Lose:
                     LoseAction();
                     break;
                 default:
@@ -61,7 +75,7 @@ namespace Manager
             GameLoseAction?.Invoke();
         }
         
-        public enum GameState
+        public enum State
         {
             Idle,
             Playing,

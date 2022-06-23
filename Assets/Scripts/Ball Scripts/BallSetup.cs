@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Ball_Scripts
 {
-    public class Ball : MonoBehaviour
+    public class BallSetup : MonoBehaviour
     {
         [field: Header("Manager Components")] 
         public AudioManager AudioManager { get; private set; }

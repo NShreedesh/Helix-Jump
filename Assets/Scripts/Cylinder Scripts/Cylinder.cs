@@ -13,6 +13,7 @@ namespace Cylinder_Scripts
 
         [Header("Components Used Explosion Info")]
         private readonly List<Rigidbody> _rigidbodies = new();
+        private readonly List<Collider> _allHelixesCollider = new();
         private readonly List<GameObject> _pointHelixes = new();
 
         private void Start()
@@ -21,6 +22,9 @@ namespace Cylinder_Scripts
             {
                 if (!transform.GetChild(i).TryGetComponent<Rigidbody>(out var rb)) continue;
                 _rigidbodies.Add(rb);
+                
+                if(!transform.GetChild(i).TryGetComponent<Collider>(out var col)) return;
+                _allHelixesCollider.Add(col);
             }
             
             for (var i = 0; i < transform.childCount; i++)
@@ -39,10 +43,15 @@ namespace Cylinder_Scripts
                 rb.transform.parent = null;
                 rb.velocity = Vector3.zero;
 
-                rb.AddExplosionForce(force, transform.position, 100, 0, ForceMode.Impulse);
+                rb.AddExplosionForce(force, transform.position, 0, 0, ForceMode.Impulse);
                 rb.AddForce(new Vector3(0, upForce, 0), ForceMode.Impulse);
 
                 Destroy(rb.gameObject, 1);
+            }
+            
+            foreach (var col in _allHelixesCollider)
+            {
+                col.enabled = false;
             }
             
             foreach (var go in _pointHelixes)

@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
-  ball: {fileID: 504031472}
+  ballSetup: {fileID: 504031472}
   jumpForce: 7
   ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}
   deadAudioClip: {fileID: 8300000, guid: 02383e7ba79a11248ac266ccc49932a0, type: 3}
@@ -367,6 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f3d12ec226c2a409f798b4054d7abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 504031472}
+  ballSetup: {fileID: 504031472}
   pointScoredAudioClip: {fileID: 8300000, guid: f2951b543d0bb6846bc54a0d941a77a8, type: 3}
   scoreIncrementValue: 10

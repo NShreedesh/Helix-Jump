@@ -601,6 +601,8 @@ MonoBehaviour:
   gameManager: {fileID: 891698146}
   gameLoseUI: {fileID: 29800795}
   gameWinUI: {fileID: 847184909}
+  startAgainButton: {fileID: 1195961685}
+  nextLevelButton: {fileID: 1849784174}
 --- !u!1 &535078917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1256,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998920971}
+  - component: {fileID: 998920973}
+  - component: {fileID: 998920974}
   - component: {fileID: 998920972}
   m_Layer: 0
   m_Name: Generate Helix
@@ -1290,16 +1294,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStorage: {fileID: 11400000, guid: 470926d75d3ef98478bd4289c1ec5fe8, type: 2}
-  startHelix: {fileID: 2266642321543820821, guid: 3ea0d1c6619e2544ea52c0eeb06722ec, type: 3}
-  endHelix: {fileID: 7022400384179614446, guid: 8d8c553d4a6166e449375e6925eb057d, type: 3}
+  startHelix: {fileID: 1491069560319940003, guid: 57594e09dd922de479df359ac7aeab01, type: 3}
+  endHelix: {fileID: 2407229703714511692, guid: 3f96721711723c34dbe531bdaa7a997e, type: 3}
   cylinderSize: 4
   spawnedHelixList: []
-  ballPrefab: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
+  ballSetup: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
   scoreManager: {fileID: 426231858}
   gameColorManager: {fileID: 1596559575}
   gameManager: {fileID: 891698146}
+--- !u!114 &998920973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998920970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a46dd31459ad7c4d93286cc7b82b1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 891698146}
+--- !u!114 &998920974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998920970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa419d275fbe054b9535dcc8aa2be16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputController: {fileID: 998920973}
+  speed: 80
 --- !u!1 &1048256395
 GameObject:
   m_ObjectHideFlags: 0

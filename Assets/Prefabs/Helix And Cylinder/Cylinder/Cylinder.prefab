@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 8486681526451530921}
   - component: {fileID: 8486681526451530926}
   - component: {fileID: 8486681526451530927}
-  - component: {fileID: 8486681526451530924}
   - component: {fileID: -5425946575498801579}
-  - component: {fileID: 8486681526451530925}
   - component: {fileID: 2133503626905618686}
   m_Layer: 0
   m_Name: Cylinder
@@ -87,18 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8486681526451530924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486681526451530922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a46dd31459ad7c4d93286cc7b82b1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5425946575498801579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,20 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   upForce: 20
---- !u!114 &8486681526451530925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486681526451530922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa419d275fbe054b9535dcc8aa2be16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputController: {fileID: 8486681526451530924}
-  speed: 80
 --- !u!114 &2133503626905618686
 MonoBehaviour:
   m_ObjectHideFlags: 0
