@@ -84,7 +84,7 @@ namespace Generate
             
             var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;
-            ballPosition.z = -2.3f;
+            ballPosition.z = -2f;
             
             ballJumpTransform.position = ballPosition;
             

@@ -24,26 +24,27 @@ namespace Ball_Scripts
         
         [Header("Splash Effect")] 
         [SerializeField]
-        private ParticleSystem[] splashParticles;
+        private GameObject[] splashSprites;
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
+            if(ballSetup.GameManager.GameState != GameManager.State.Playing) return;
+            
+            if (collision.gameObject.CompareTag(TagManager.HelixKill))
+            {
+                Die();
+                ballSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
+            }
+            
+            else if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
             {
                 if(!_canJump) return;
-                if(ballSetup.GameManager.GameState != GameManager.State.Playing) return;
                 
                 Jump();
                 SplashEffect(collision);
                 ballSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
             
                 Invoke(nameof(CheckJump), 0.2f);
-            }
-            
-            else if (collision.gameObject.CompareTag(TagManager.HelixKill))
-            {
-                Die();
-                ballSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
@@ -61,20 +62,25 @@ namespace Ball_Scripts
 
         private void SplashEffect(Collision collision)
         {
-            var randomSplashEffect = Random.Range(0, splashParticles.Length);
-        
-            var v = collision.GetContact(0).point;
-            v.y += collision.collider.bounds.extents.y;
-            var spawnedSplashParticle = Instantiate(splashParticles[randomSplashEffect], v, splashParticles[randomSplashEffect].transform.rotation, collision.transform);
+            var randomSplashEffect = Random.Range(0, splashSprites.Length);
+
+            var splashEffectSpawnPosition = collision.GetContact(0).point;
+            splashEffectSpawnPosition.y += collision.collider.bounds.extents.y;
+
+            var randomZRotation = Random.Range(0, 360);
+            var splashEffectRotation = splashSprites[randomSplashEffect].transform.rotation;
+            splashEffectRotation.z = randomZRotation;
             
-            var main = spawnedSplashParticle.main;
-            main.startColor = new ParticleSystem.MinMaxGradient(ballSetup.SplashColor);
-            
-            spawnedSplashParticle.Play();
+            var spawnedSplash = Instantiate(splashSprites[randomSplashEffect], collision.transform);
+            spawnedSplash.transform.position = splashEffectSpawnPosition;
+            spawnedSplash.transform.localRotation = splashEffectRotation;
+            spawnedSplash.GetComponent<SpriteRenderer>().color = ballSetup.SplashColor;
+            Destroy(spawnedSplash, 3);
         }
 
         private void Die()
         {
+            rb.isKinematic = true;
             StopBallJump();
             ballSetup.GameManager.ChangeGameState(GameManager.State.Lose);
         }
