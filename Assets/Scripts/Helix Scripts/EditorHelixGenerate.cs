@@ -2,8 +2,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.Helix_Scripts
+#if UNITY_EDITOR
+namespace Helix_Scripts
 {
+    
     public class EditorHelixGenerate : MonoBehaviour
     {
         [SerializeField] 
@@ -61,3 +63,4 @@ namespace Editor.Helix_Scripts
         }
     }
 }
+#endif

@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 2875375580111944820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.3}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3166855842820773040}
@@ -333,8 +333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
   scaleIncrement: 1
-  minScale: 0.5
-  maxScale: 0.7
+  minScale: 0.3
+  maxScale: 0.5
+  scaleLerpValue: 1
 --- !u!114 &-5292383137277655210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
   ballSetup: {fileID: 504031472}
-  jumpForce: 7
+  jumpForce: 8
   ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}
   deadAudioClip: {fileID: 8300000, guid: 02383e7ba79a11248ac266ccc49932a0, type: 3}
   splashParticles:

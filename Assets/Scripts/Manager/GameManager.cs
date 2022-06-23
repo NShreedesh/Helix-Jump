@@ -22,6 +22,16 @@ namespace Manager
         public Action GameLoseAction;
         public Action GameWinAction;
 
+        private void Awake()
+        {
+            switch (Application.platform)
+            {
+                case RuntimePlatform.Android:
+                    Application.targetFrameRate = 30;
+                    break;
+            }
+        }
+
         private void Start()
         {
             gameState = State.Idle;

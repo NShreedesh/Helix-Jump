@@ -5,15 +5,22 @@ namespace Ball_Scripts
 {
     public class BallAnimation : MonoBehaviour
     {
+        [Header("Components")]
         [SerializeField]
         private Rigidbody rb;
         
+        [Header("Ball Scale")]
         [SerializeField] 
         private float scaleIncrement;
         [SerializeField] 
         private float minScale;
         [SerializeField] 
         private float maxScale;
+
+        [Header("Lerp Values")]
+        [SerializeField]
+        [Range(0, 1)]
+        private float scaleLerpValue = 1;
         
         private void Update()
         {
@@ -56,7 +63,7 @@ namespace Ball_Scripts
             ballScale.y = Math.Clamp(ballScale.y, minScale, maxScale);
             ballScale.z = Math.Clamp(ballScale.z, minScale, maxScale);
             
-            transform.localScale = ballScale;
+            transform.localScale = Vector3.Lerp(transform.localScale, ballScale, scaleLerpValue);
         }
     }
 }
