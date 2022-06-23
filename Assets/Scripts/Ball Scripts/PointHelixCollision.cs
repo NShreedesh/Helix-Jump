@@ -20,13 +20,23 @@ namespace Ball_Scripts
        
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.gameObject.CompareTag(TagManager.HelixPoint)) return;
-            
-            ballSetup.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
-            ballSetup.ScoreManager.UpdateScore(scoreIncrementValue);
+            if (other.gameObject.CompareTag(TagManager.HelixPoint))
+            {
+                ballSetup.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
+                ballSetup.ScoreManager.UpdateScore(scoreIncrementValue);
 
-            if(!other.transform.parent.TryGetComponent<Cylinder>(out var cylinder)) return;
-            cylinder.DamageIfPointIsScored();
+                DamageHelixDuringTrigger(other);
+            }
+            else if (other.gameObject.CompareTag(TagManager.HelixWithoutPoint))
+            {
+                DamageHelixDuringTrigger(other);
+            }
+        }
+
+        private static void DamageHelixDuringTrigger(Collider other)
+        {
+            if (!other.transform.parent.TryGetComponent<Cylinder>(out var cylinder)) return;
+            cylinder.DamageHelix();
         }
     }
 }

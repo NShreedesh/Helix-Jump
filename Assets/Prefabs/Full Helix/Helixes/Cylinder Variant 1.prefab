@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8486681526451530922, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
       propertyPath: m_Name
-      value: Cylinder
+      value: Cylinder Variant 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
@@ -628,6 +628,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 9982b31d0a8882a4496eabab9de1fd9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240985267537913, guid: 9982b31d0a8882a4496eabab9de1fd9c, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

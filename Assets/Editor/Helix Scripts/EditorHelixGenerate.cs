@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Helix_Scripts
+namespace Editor.Helix_Scripts
 {
     public class EditorHelixGenerate : MonoBehaviour
     {

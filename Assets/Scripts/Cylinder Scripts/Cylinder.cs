@@ -34,7 +34,7 @@ namespace Cylinder_Scripts
             }
         }
 
-        public void DamageIfPointIsScored()
+        public void DamageHelix()
         {
             foreach (var rb in _rigidbodies)
             {
