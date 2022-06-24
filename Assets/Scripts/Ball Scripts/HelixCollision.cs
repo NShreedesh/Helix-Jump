@@ -41,10 +41,9 @@ namespace Ball_Scripts
                 if(!_canJump) return;
                 
                 Jump();
+                Invoke(nameof(CheckJump), 0.2f);
                 SplashEffect(collision);
                 ballSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
-            
-                Invoke(nameof(CheckJump), 0.2f);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
@@ -65,7 +64,8 @@ namespace Ball_Scripts
             var randomSplashEffect = Random.Range(0, splashSprites.Length);
 
             var splashEffectSpawnPosition = collision.GetContact(0).point;
-            splashEffectSpawnPosition.y += collision.collider.bounds.extents.y;
+            splashEffectSpawnPosition.y = collision.transform.position.y;
+            splashEffectSpawnPosition.y += collision.collider.bounds.size.y + 0.01f;
 
             var randomZRotation = Random.Range(0, 360);
             var splashEffectRotation = splashSprites[randomSplashEffect].transform.rotation;
