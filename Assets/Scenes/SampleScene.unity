@@ -1330,8 +1330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 998920973}
-  mobileSensitivity: 10
-  pcSensitivity: 45
+  mobileSensitivity: 20
+  pcSensitivity: 100
   lerpSpeed: 1
 --- !u!1 &1048256395
 GameObject:

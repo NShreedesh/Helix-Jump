@@ -1,7 +1,7 @@
 using Manager;
 using UnityEngine;
 
-namespace Cylinder_Scripts
+namespace Player
 {
     public class InputController : MonoBehaviour
     {

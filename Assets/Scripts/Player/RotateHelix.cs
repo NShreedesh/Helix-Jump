@@ -1,6 +1,7 @@
+using Unity.Mathematics;
 using UnityEngine;
 
-namespace Cylinder_Scripts
+namespace Player
 {
     public class RotateHelix : MonoBehaviour
     {
@@ -36,10 +37,15 @@ namespace Cylinder_Scripts
 
         private void Update()
         {
-            if (inputController.MousePress <= 0) return;
+            if (!(inputController.MousePress > 0)) return;
 
-            var smoothRotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0, inputController.Delta.x * -_speed * Time.deltaTime, 0), lerpSpeed);
-            transform.Rotate(smoothRotation);
+            var xDelta = inputController.Delta.x;
+            var eulerAngles = transform.eulerAngles;
+                
+            var smoothRotation = Vector3.Lerp(eulerAngles, new Vector3(0, xDelta * -_speed * Time.smoothDeltaTime, 0), lerpSpeed);
+            eulerAngles += smoothRotation;
+                
+            transform.eulerAngles = eulerAngles;
         }
     }
 }
