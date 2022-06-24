@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfad254ee54123846a1defbdafa92c64, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  levelData:
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
+    rotationY: 150
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
+    rotationY: 90
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
+    rotationY: 270
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
+    rotationY: 330
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
+    rotationY: 90
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
+    rotationY: 330
+  - helixToSpawn: {fileID: 2467076168132463626, guid: 425052c6027c9b4498455b02f64ffd11, type: 3}
+    rotationY: 0
+  - helixToSpawn: {fileID: 2501988804336631537, guid: 04671996e5c5e894b8b7d787c0c7911c, type: 3}
+    rotationY: 120

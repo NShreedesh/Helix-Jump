@@ -7,9 +7,11 @@ namespace UI
 {
     public class WinLoseUI : MonoBehaviour
     {
-        [Header("GameManager")]
+        [Header("Managers")]
         [SerializeField] 
         private GameManager gameManager;
+        [SerializeField] 
+        private LevelManager levelManager;
         
         [Header("WinLose UI")]
         [SerializeField] 
@@ -30,7 +32,7 @@ namespace UI
             gameManager.GameLoseAction += LoseStateOn;
             gameManager.GameWinAction += WinStateOn;
             
-            startAgainButton.onClick.AddListener(LoadLevel);
+            startAgainButton.onClick.AddListener(ReloadLevel);
             nextLevelButton.onClick.AddListener(LoadLevel);
         }
         
@@ -50,8 +52,14 @@ namespace UI
             gameWinUI.gameObject.SetActive(true);
         }
 
+        private void ReloadLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
         private void LoadLevel()
         {
+            levelManager.SaveLevel();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         

@@ -24,10 +24,6 @@ namespace Manager
         public Action GameLoseAction;
         public Action GameWinAction;
 
-        [Header("Managers")] 
-        [SerializeField] 
-        private LevelManager levelManager;
-
         private void Awake()
         {
             switch (Application.platform)
@@ -85,7 +81,6 @@ namespace Manager
         private void WinAction()
         {
             GameWinAction?.Invoke();
-            levelManager.SaveLevel();
         }
 
         private void LoseAction()

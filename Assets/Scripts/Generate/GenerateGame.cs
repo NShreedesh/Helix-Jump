@@ -11,7 +11,7 @@ namespace Generate
     {
         [Header("Helix Info")]
         [SerializeField] 
-        private LevelStorage levelStorage;
+        private LevelStorage[] levelStorage;
         [SerializeField] 
         private GameObject startHelix;
         [SerializeField] 
@@ -38,6 +38,8 @@ namespace Generate
         private GameColorManager gameColorManager;
         [SerializeField]
         private GameManager gameManager;
+        [SerializeField]
+        private LevelManager levelManager;
 
         private void Start()
         {
@@ -53,8 +55,9 @@ namespace Generate
             var spawnedStartHelix = Instantiate(startHelix, thisTransform.position, Quaternion.identity, thisTransform);
             spawnedStartHelix.SetActive(false);
             spawnedHelixList.Add(spawnedStartHelix);
+            var level = levelManager.LoadLevel();
             
-            foreach (var helix in levelStorage.levelData)
+            foreach (var helix in levelStorage[level - 1].levelData)
             {
                 var spawnedHelix = Instantiate(helix.helixToSpawn, thisTransform.position, Quaternion.identity, thisTransform);
                 spawnedHelix.transform.localEulerAngles = spawnedHelix.transform.rotation.eulerAngles + new Vector3(0, (int)helix.rotationY, 0);

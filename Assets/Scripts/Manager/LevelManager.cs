@@ -7,28 +7,39 @@ namespace Manager
     {
         [SerializeField]
         private int level;
-        public int Level
-        {
-            get => level;
-            set => level = value;
-        }
 
-        private void Start()
-        {
-            level = LoadLevel();
-        }
+        [SerializeField] 
+        private int maxLevel;
 
         public void SaveLevel()
         {
+            if (level >= maxLevel) return;
+            
+            IncrementLevel();
             PlayerPrefs.SetInt(SaveLoadTagManager.LevelNumberKey, level);
         }
         
-        private int LoadLevel()
+        public int LoadLevel()
         {
-            if (!PlayerPrefs.HasKey(SaveLoadTagManager.LevelNumberKey)) return 1;
-
+            if (!PlayerPrefs.HasKey(SaveLoadTagManager.LevelNumberKey))
+            {
+                level = 1;
+                return 1;
+            }
             var levelNumber = PlayerPrefs.GetInt(SaveLoadTagManager.LevelNumberKey);
+            if (levelNumber >= maxLevel)
+            {
+                level = maxLevel;
+                return maxLevel;
+            }
+
+            level = levelNumber;
             return levelNumber;
+        }
+
+        private void IncrementLevel()
+        {
+            level++;
         }
     }
 }
