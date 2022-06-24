@@ -3,7 +3,6 @@ using Ball_Scripts;
 using Camera;
 using Data_Scripts;
 using Manager;
-using Score;
 using UnityEngine;
 
 namespace Generate

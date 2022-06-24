@@ -2,7 +2,7 @@ using Static;
 using TMPro;
 using UnityEngine;
 
-namespace Score
+namespace Manager
 {
     public class ScoreManager : MonoBehaviour
     {

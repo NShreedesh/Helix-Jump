@@ -5,6 +5,7 @@ namespace Manager
 {
     public class GameManager : MonoBehaviour
     {
+        [Header("State Enum")]
         [SerializeField]
         private State gameState;
         public State GameState
@@ -17,10 +18,15 @@ namespace Manager
             }
         }
 
+        [Header("Actions")]
         public Action GameIdleAction;
         public Action GamePlayingAction;
         public Action GameLoseAction;
         public Action GameWinAction;
+
+        [Header("Managers")] 
+        [SerializeField] 
+        private LevelManager levelManager;
 
         private void Awake()
         {
@@ -79,6 +85,7 @@ namespace Manager
         private void WinAction()
         {
             GameWinAction?.Invoke();
+            levelManager.SaveLevel();
         }
 
         private void LoseAction()

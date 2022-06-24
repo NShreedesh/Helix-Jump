@@ -1,5 +1,4 @@
 using Manager;
-using Score;
 using UnityEngine;
 
 namespace Ball_Scripts
