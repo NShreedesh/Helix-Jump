@@ -20,13 +20,14 @@ namespace ShapeScripts
         private void FixedUpdate()
         {
             if(shapeSetup.GameManager.GameState != GameManager.State.Playing) return;
-
             switch (rb.velocity.y)
             {
                 case > 0:
+                    if(!anim.GetBool(_isBallFallingHash)) return;
                     anim.SetBool(_isBallFallingHash, false);
                     break;
                 case < 0:
+                    if(anim.GetBool(_isBallFallingHash)) return;
                     anim.SetBool(_isBallFallingHash, true);
                     break;
             }
