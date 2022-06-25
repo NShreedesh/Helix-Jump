@@ -1,14 +1,15 @@
+using ShapeScripts;
 using Cylinder_Scripts;
 using Static;
 using UnityEngine;
 
-namespace Ball_Scripts
+namespace ShapeScripts
 {
     public class PointHelixCollision : MonoBehaviour
     {
         [Header("Components")] 
         [SerializeField]
-        private BallSetup ballSetup;
+        private ShapeSetup shapeSetup;
         
         [Header("Audio Clips")]
         [SerializeField] 
@@ -22,8 +23,8 @@ namespace Ball_Scripts
         {
             if (other.gameObject.CompareTag(TagManager.HelixPoint))
             {
-                ballSetup.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
-                ballSetup.ScoreManager.UpdateScore(scoreIncrementValue);
+                shapeSetup.AudioManager.PlayOneShotAudio(pointScoredAudioClip);
+                shapeSetup.ScoreManager.UpdateScore(scoreIncrementValue);
 
                 DamageHelixDuringTrigger(other);
             }

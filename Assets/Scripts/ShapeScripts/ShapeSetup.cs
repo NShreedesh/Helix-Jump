@@ -1,9 +1,9 @@
 using Manager;
 using UnityEngine;
 
-namespace Ball_Scripts
+namespace ShapeScripts
 {
-    public class BallSetup : MonoBehaviour
+    public class ShapeSetup : MonoBehaviour
     {
         [field: Header("Manager Components")] 
         public AudioManager AudioManager { get; private set; }

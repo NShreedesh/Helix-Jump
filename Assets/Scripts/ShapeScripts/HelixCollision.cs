@@ -1,9 +1,10 @@
+using ShapeScripts;
 using Manager;
 using Static;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Ball_Scripts
+namespace ShapeScripts
 {
     public class HelixCollision : MonoBehaviour
     {
@@ -11,7 +12,7 @@ namespace Ball_Scripts
         [SerializeField] 
         private Rigidbody rb;
         [SerializeField] 
-        private BallSetup ballSetup;
+        private ShapeSetup shapeSetup;
 
         [Header("Ball Jump Values")]
         [SerializeField] 
@@ -28,12 +29,12 @@ namespace Ball_Scripts
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(ballSetup.GameManager.GameState != GameManager.State.Playing) return;
+            if(shapeSetup.GameManager.GameState != GameManager.State.Playing) return;
             
             if (collision.gameObject.CompareTag(TagManager.HelixKill))
             {
                 Die();
-                ballSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
+                shapeSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
@@ -43,7 +44,7 @@ namespace Ball_Scripts
                 Jump();
                 Invoke(nameof(CheckJump), 0.2f);
                 SplashEffect(collision);
-                ballSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
+                shapeSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
             }
             
             else if (collision.gameObject.CompareTag(TagManager.HelixLevelComplete))
@@ -74,7 +75,7 @@ namespace Ball_Scripts
             var spawnedSplash = Instantiate(splashSprites[randomSplashEffect], collision.transform);
             spawnedSplash.transform.position = splashEffectSpawnPosition;
             spawnedSplash.transform.localRotation = splashEffectRotation;
-            spawnedSplash.GetComponent<SpriteRenderer>().color = ballSetup.SplashColor;
+            spawnedSplash.GetComponent<SpriteRenderer>().color = shapeSetup.SplashColor;
             Destroy(spawnedSplash, 3);
         }
 
@@ -82,13 +83,13 @@ namespace Ball_Scripts
         {
             rb.isKinematic = true;
             StopBallJump();
-            ballSetup.GameManager.ChangeGameState(GameManager.State.Lose);
+            shapeSetup.GameManager.ChangeGameState(GameManager.State.Lose);
         }
         
         private void LevelComplete()
         {
             StopBallJump();
-            ballSetup.GameManager.ChangeGameState(GameManager.State.Win);
+            shapeSetup.GameManager.ChangeGameState(GameManager.State.Win);
         }
         
         private void CheckJump() => _canJump = true;

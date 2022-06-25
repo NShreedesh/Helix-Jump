@@ -1389,7 +1389,7 @@ MonoBehaviour:
   endHelix: {fileID: 2407229703714511692, guid: 3f96721711723c34dbe531bdaa7a997e, type: 3}
   cylinderSize: 4
   spawnedHelixList: []
-  ballSetup: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
+  shapeSetup: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
   scoreManager: {fileID: 426231858}

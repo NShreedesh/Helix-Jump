@@ -1,7 +1,7 @@
 using Manager;
 using UnityEngine;
 
-namespace Ball_Scripts.Animations
+namespace ShapeScripts
 {
     public class ShapeAnimation : MonoBehaviour
     {
@@ -11,19 +11,23 @@ namespace Ball_Scripts.Animations
         [SerializeField]
         private Animator anim;
         [SerializeField]
-        private BallSetup ballSetup;
+        private ShapeSetup shapeSetup;
+
+        [Header("Parameters For Animation")] 
+        private const string IsBallFalling = "isBallFalling";
+        private readonly int _isBallFallingHash = Animator.StringToHash(IsBallFalling);
 
         private void FixedUpdate()
         {
-            if(ballSetup.GameManager.GameState != GameManager.State.Playing) return;
+            if(shapeSetup.GameManager.GameState != GameManager.State.Playing) return;
 
             switch (rb.velocity.y)
             {
                 case > 0:
-                    anim.SetBool("isBallFalling", false);
+                    anim.SetBool(_isBallFallingHash, false);
                     break;
                 case < 0:
-                    anim.SetBool("isBallFalling", true);
+                    anim.SetBool(_isBallFallingHash, true);
                     break;
             }
         }

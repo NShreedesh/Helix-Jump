@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Ball_Scripts;
+using ShapeScripts;
 using Camera;
 using Data_Scripts;
 using Manager;
@@ -21,9 +21,9 @@ namespace Generate
         [SerializeField] 
         private List<GameObject> spawnedHelixList;
         
-        [Header("Ball Info")]
+        [Header("Shape Info")]
         [SerializeField] 
-        private BallSetup ballSetup;
+        private ShapeSetup shapeSetup;
         
         [Header("Camera Info")]
         [SerializeField] 
@@ -82,7 +82,7 @@ namespace Generate
 
         private void SpawnBall()
         {
-            var ball = Instantiate(ballSetup, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            var ball = Instantiate(shapeSetup, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             
             var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;
