@@ -7,6 +7,7 @@ namespace Data_Scripts
     public class ColorStorage : ScriptableObject
     {
         public ColorData[] colorData;
+        public Color levelCompleteHelixColor;
     }
 
     [Serializable]
@@ -15,7 +16,6 @@ namespace Data_Scripts
         [Header("Helix Colors")]
         public Color nonKillHelixColor;
         public Color killHelixColor;
-        public Color levelCompleteHelixColor;
 
         [Header("Ball Color")] 
         public Color ballColor;

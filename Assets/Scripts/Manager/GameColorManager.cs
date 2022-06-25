@@ -31,7 +31,7 @@ namespace Manager
             ballMaterial.color = colorStorage.colorData[randomColorArray].ballColor;
             nonKillHelixMaterial.color = colorStorage.colorData[randomColorArray].nonKillHelixColor;
             killHelixMaterial.color = colorStorage.colorData[randomColorArray].killHelixColor;
-            levelCompleteHelixMaterial.color = colorStorage.colorData[randomColorArray].levelCompleteHelixColor;
+            levelCompleteHelixMaterial.color = colorStorage.levelCompleteHelixColor;
 
             SplashColor = ballMaterial.color;
         }
