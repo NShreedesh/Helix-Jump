@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeSetup: {fileID: 504031472}
-  pointScoredAudioClip: {fileID: 8300000, guid: f2951b543d0bb6846bc54a0d941a77a8, type: 3}
+  pointScoredAudioClip: {fileID: 8300000, guid: e1410713ecd9bf2459afdb13d7a88ca5, type: 3}
   scoreIncrementValue: 10
 --- !u!114 &-327834222487572218
 MonoBehaviour:
