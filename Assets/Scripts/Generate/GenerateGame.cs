@@ -4,6 +4,7 @@ using Camera;
 using Data_Scripts;
 using Manager;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Generate
 {
@@ -18,12 +19,11 @@ namespace Generate
         private GameObject endHelix;
         [SerializeField] 
         private float cylinderSize = 4;
-        [SerializeField] 
-        private List<GameObject> spawnedHelixList;
+        private readonly List<GameObject> _spawnedHelixList = new();
         
         [Header("Shape Info")]
         [SerializeField] 
-        private ShapeSetup shapeSetup;
+        private ShapeSetup[] shapeSetups;
         
         [Header("Camera Info")]
         [SerializeField] 
@@ -41,6 +41,11 @@ namespace Generate
         [SerializeField]
         private LevelManager levelManager;
 
+        private void Awake()
+        {
+            levelManager.SetMaxLevel(levelStorage.Length);
+        }
+
         private void Start()
         {
             Generate();
@@ -54,7 +59,7 @@ namespace Generate
             
             var spawnedStartHelix = Instantiate(startHelix, thisTransform.position, Quaternion.identity, thisTransform);
             spawnedStartHelix.SetActive(false);
-            spawnedHelixList.Add(spawnedStartHelix);
+            _spawnedHelixList.Add(spawnedStartHelix);
             var level = levelManager.LoadLevel();
             
             foreach (var helix in levelStorage[level - 1].levelData)
@@ -62,27 +67,28 @@ namespace Generate
                 var spawnedHelix = Instantiate(helix.helixToSpawn, thisTransform.position, Quaternion.identity, thisTransform);
                 spawnedHelix.transform.localEulerAngles = spawnedHelix.transform.rotation.eulerAngles + new Vector3(0, (int)helix.rotationY, 0);
                 spawnedHelix.SetActive(false);
-                spawnedHelixList.Add(spawnedHelix);
+                _spawnedHelixList.Add(spawnedHelix);
             }
             
             var spawnedEndHelix = Instantiate(endHelix, thisTransform.position, Quaternion.identity, thisTransform);
             spawnedEndHelix.SetActive(false);
-            spawnedHelixList.Add(spawnedEndHelix);
+            _spawnedHelixList.Add(spawnedEndHelix);
         }
 
         private void LevelMaking()
         {
             var position = transform.position;
-            for (var i = 0; i < spawnedHelixList.Count; i++)
+            for (var i = 0; i < _spawnedHelixList.Count; i++)
             {
-                spawnedHelixList[i].transform.position = new Vector3(position.x, position.y - (cylinderSize * i), position.z);
-                spawnedHelixList[i].SetActive(true);
+                _spawnedHelixList[i].transform.position = new Vector3(position.x, position.y - (cylinderSize * i), position.z);
+                _spawnedHelixList[i].SetActive(true);
             }
         }
 
         private void SpawnBall()
         {
-            var ball = Instantiate(shapeSetup, spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            var randomShape = Random.Range(0, shapeSetups.Length);
+            var ball = Instantiate(shapeSetups[randomShape], _spawnedHelixList[0].transform.position + new Vector3(0, 3, 0), Quaternion.identity);
             
             var ballJumpTransform = ball.transform;
             var ballPosition = ballJumpTransform.position;

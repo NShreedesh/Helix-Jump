@@ -41,5 +41,10 @@ namespace Manager
         {
             level++;
         }
+
+        public void SetMaxLevel(int totalLevels)
+        {
+            maxLevel = totalLevels;
+        }
     }
 }

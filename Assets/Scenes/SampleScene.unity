@@ -1384,12 +1384,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStorage:
   - {fileID: 11400000, guid: 470926d75d3ef98478bd4289c1ec5fe8, type: 2}
-  - {fileID: 11400000, guid: 470926d75d3ef98478bd4289c1ec5fe8, type: 2}
+  - {fileID: 11400000, guid: 28f34c705663f974db63b734d484b998, type: 2}
   startHelix: {fileID: 1491069560319940003, guid: 57594e09dd922de479df359ac7aeab01, type: 3}
   endHelix: {fileID: 2407229703714511692, guid: 3f96721711723c34dbe531bdaa7a997e, type: 3}
   cylinderSize: 4
-  spawnedHelixList: []
-  shapeSetup: {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
+  shapeSetups:
+  - {fileID: 504031472, guid: 5aead68e19d898841beaefb41875846b, type: 3}
+  - {fileID: 504031472, guid: fc068738dd90f9a4daed6b677634fd83, type: 3}
   cameraController: {fileID: 963194230}
   audioManager: {fileID: 65623489}
   scoreManager: {fileID: 426231858}

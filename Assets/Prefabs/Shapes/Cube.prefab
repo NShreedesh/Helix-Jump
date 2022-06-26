@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8373435323084272716}
   - component: {fileID: -327834222487572218}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Cube
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2875375580111944820}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2875375580111944818
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ Animator:
   m_GameObject: {fileID: 2875375580111944820}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d79d2f17f5b58af43b6cf1d93b8e7fd4, type: 2}
+  m_Controller: {fileID: 22100000, guid: 3166b9de504d87349a21d22649c8acaa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
