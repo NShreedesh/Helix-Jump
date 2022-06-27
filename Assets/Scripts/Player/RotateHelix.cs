@@ -1,3 +1,5 @@
+using System;
+using Static;
 using UnityEngine;
 
 namespace Player
@@ -8,12 +10,22 @@ namespace Player
         [SerializeField]
         private InputController inputController;
 
-        [Header("Helix Rotation Values")] 
+        [Header("Actions")] 
+        public Action OnSpeedChanged;
+
+        [Header("Helix Rotation Values")]
+        [SerializeField]
+        private float initialSpeed;
         private float _speed;
-        [SerializeField]
-        private float mobileSensitivity;
-        [SerializeField]
-        private float pcSensitivity;
+        public float Speed 
+        {
+            get => _speed;
+            private set
+            {
+                _speed = value;
+                OnSpeedChanged?.Invoke();
+            }
+        }
 
         [Header("Rotation Lerp Value")] 
         [SerializeField]
@@ -22,16 +34,7 @@ namespace Player
 
         private void Start()
         {
-            switch (Application.platform)
-            {
-                case RuntimePlatform.Android:
-                case RuntimePlatform.IPhonePlayer:
-                    _speed = mobileSensitivity;
-                    break;
-                default:
-                    _speed = pcSensitivity;
-                    break;
-            }
+            Speed = LoadSensitivity();
         }
 
         private void Update()
@@ -41,10 +44,27 @@ namespace Player
             var xDelta = inputController.Delta.x;
             var eulerAngles = transform.eulerAngles;
                 
-            var smoothRotation = Vector3.Lerp(eulerAngles, new Vector3(0, xDelta * -_speed * Time.smoothDeltaTime, 0), lerpSpeed);
+            var smoothRotation = Vector3.Lerp(eulerAngles, new Vector3(0, xDelta * -Speed * Time.smoothDeltaTime, 0), lerpSpeed);
             eulerAngles += smoothRotation;
                 
             transform.eulerAngles = eulerAngles;
+        }
+
+        public void ChangeSensitivity(float sensitivity)
+        {
+            Speed = sensitivity;
+        }
+
+        public void SaveSensitivity(float sensitivity)
+        {
+            PlayerPrefs.SetFloat(SaveLoadTagManager.RotateSpeedSetting, sensitivity);
+        }
+        
+        private float LoadSensitivity()
+        {
+            return !PlayerPrefs.HasKey(SaveLoadTagManager.RotateSpeedSetting) 
+                ? initialSpeed 
+                : PlayerPrefs.GetFloat(SaveLoadTagManager.RotateSpeedSetting);
         }
     }
 }
