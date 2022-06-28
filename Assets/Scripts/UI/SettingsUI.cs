@@ -3,7 +3,7 @@ using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Menu
+namespace UI
 {
     public class SettingsUI : MonoBehaviour
     {

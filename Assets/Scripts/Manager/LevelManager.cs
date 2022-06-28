@@ -1,4 +1,6 @@
+using System;
 using Static;
+using UI;
 using UnityEngine;
 
 namespace Manager
@@ -10,6 +12,8 @@ namespace Manager
 
         [SerializeField] 
         private int maxLevel;
+
+        public Action<int> OnLevelChange;
 
         public void SaveLevel()
         {
@@ -24,22 +28,30 @@ namespace Manager
             if (!PlayerPrefs.HasKey(SaveLoadTagManager.LevelNumberKey))
             {
                 level = 1;
+                LevelChanged(level);
                 return 1;
             }
             var levelNumber = PlayerPrefs.GetInt(SaveLoadTagManager.LevelNumberKey);
             if (levelNumber >= maxLevel)
             {
                 level = maxLevel;
+                LevelChanged(level);
                 return maxLevel;
             }
 
             level = levelNumber;
+            LevelChanged(level);
             return levelNumber;
         }
 
         private void IncrementLevel()
         {
             level++;
+        }
+
+        private void LevelChanged(int levelNumber)
+        {
+            OnLevelChange?.Invoke(levelNumber);
         }
 
         public void SetMaxLevel(int totalLevels)
