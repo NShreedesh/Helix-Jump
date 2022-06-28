@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Cylinder_Scripts
 {
-    public class Cylinder : MonoBehaviour
+    public class HelixBlast : MonoBehaviour
     {
         [Header("Helixes Explosion Force Info")]
         [SerializeField]
@@ -15,10 +15,18 @@ namespace Cylinder_Scripts
         private readonly List<Rigidbody> _rigidbodies = new();
         private readonly List<Collider> _allHelixesCollider = new();
         private readonly List<GameObject> _pointHelixes = new();
+        private readonly List<Renderer> _helixRenderers = new();
+
+        [Header("Shader Property")] 
+        [SerializeField]
+        private Color helixBlastColor;
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
 
         private void Start()
         {
-            for (var i = 0; i < transform.childCount; i++)
+            var childCount = transform.childCount;
+            
+            for (var i = 0; i < childCount; i++)
             {
                 if (!transform.GetChild(i).TryGetComponent<Rigidbody>(out var rb)) continue;
                 _rigidbodies.Add(rb);
@@ -27,15 +35,29 @@ namespace Cylinder_Scripts
                 _allHelixesCollider.Add(col);
             }
             
-            for (var i = 0; i < transform.childCount; i++)
+            for (var i = 0; i < childCount; i++)
             {
                 if (transform.GetChild(i).TryGetComponent<Rigidbody>(out var rb)) continue;
                 _pointHelixes.Add(transform.GetChild(i).gameObject);
+            }
+            
+            for (var i = 0; i < childCount; i++)
+            {
+                if(!transform.GetChild(i).TryGetComponent<Renderer>(out var rend)) continue;
+                _helixRenderers.Add(rend);
             }
         }
 
         public void DamageHelix()
         {
+            foreach (var rend in _helixRenderers)
+            {
+                var materialPropertyBlock = new MaterialPropertyBlock();
+                rend.GetPropertyBlock(materialPropertyBlock);
+                materialPropertyBlock.SetColor(BaseColor, helixBlastColor);
+                rend.SetPropertyBlock(materialPropertyBlock);
+            }
+            
             foreach (var rb in _rigidbodies)
             {
                 rb.isKinematic = false;

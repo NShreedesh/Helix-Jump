@@ -415,6 +415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+--- !u!23 &8705423875951304198 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1853240985267537913, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+  m_PrefabInstance: {fileID: 7023337501781203455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7023337502106337806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,6 +484,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5425946575498801579, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
+      propertyPath: redn
+      value: 
+      objectReference: {fileID: 8705423875951304198}
     - target: {fileID: 2133503626905618686, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
       propertyPath: whichHelix
       value: 
