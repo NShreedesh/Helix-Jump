@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
+  col: {fileID: -995404949104931936}
   shapeSetup: {fileID: 504031472}
   jumpForce: 10
   ballCollideAudioClip: {fileID: 8300000, guid: f1b0dc624c75c884c96a667a677dafb1, type: 3}

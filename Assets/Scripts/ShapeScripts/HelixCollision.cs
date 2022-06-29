@@ -1,4 +1,3 @@
-using ShapeScripts;
 using Manager;
 using Static;
 using UnityEngine;
@@ -11,6 +10,8 @@ namespace ShapeScripts
         [Header("Components")]
         [SerializeField] 
         private Rigidbody rb;
+        [SerializeField] 
+        private Collider col;
         [SerializeField] 
         private ShapeSetup shapeSetup;
 
@@ -42,7 +43,7 @@ namespace ShapeScripts
                 if(!_canJump) return;
                 
                 Jump();
-                Invoke(nameof(CheckJump), 0.2f);
+                Invoke(nameof(CheckJump), 0.5f);
                 SplashEffect(collision);
                 shapeSetup.AudioManager.PlayOneShotAudio(ballCollideAudioClip);
             }
@@ -57,6 +58,7 @@ namespace ShapeScripts
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            ColliderOnOff(false);
             _canJump = false;
         }
 
@@ -66,7 +68,7 @@ namespace ShapeScripts
 
             var splashEffectSpawnPosition = collision.GetContact(0).point;
             splashEffectSpawnPosition.y = collision.transform.position.y;
-            splashEffectSpawnPosition.y += collision.collider.bounds.size.y + 0.01f;
+            splashEffectSpawnPosition.y += collision.collider.bounds.size.y + 0.02f;
 
             var randomZRotation = Random.Range(0, 360);
             var splashEffectRotation = splashSprites[randomSplashEffect].transform.rotation;
@@ -75,6 +77,7 @@ namespace ShapeScripts
             var spawnedSplash = Instantiate(splashSprites[randomSplashEffect], collision.transform);
             spawnedSplash.transform.position = splashEffectSpawnPosition;
             spawnedSplash.transform.localRotation = splashEffectRotation;
+            
             spawnedSplash.GetComponent<SpriteRenderer>().color = shapeSetup.SplashColor;
             Destroy(spawnedSplash, 3);
         }
@@ -91,13 +94,22 @@ namespace ShapeScripts
             StopBallJump();
             shapeSetup.GameManager.ChangeGameState(GameManager.State.Win);
         }
-        
-        private void CheckJump() => _canJump = true;
+
+        private void CheckJump()
+        {
+            ColliderOnOff(true);
+            _canJump = true;
+        }
 
         private void StopBallJump()
         {
             rb.velocity = Vector3.zero;
             jumpForce = 0;
+        }
+
+        private void ColliderOnOff(bool isEnabled)
+        {
+            col.enabled = isEnabled;
         }
         
         private void OnDisable() => CancelInvoke();
