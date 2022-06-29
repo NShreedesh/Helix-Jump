@@ -277,7 +277,7 @@ AudioSource:
   m_GameObject: {fileID: 47332504}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: db9665254891e824187494b550e635ff, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -962,7 +962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93df3611657aa6948881ce66574eabdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 891698146}
   levelManager: {fileID: 1266213057}
   gameLoseUI: {fileID: 29800795}
   gameWinUI: {fileID: 847184909}
@@ -1000,7 +999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1878998315}
-  levelManager: {fileID: 1266213057}
 --- !u!1 &452526901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a46dd31459ad7c4d93286cc7b82b1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 891698146}
 --- !u!114 &998920974
 MonoBehaviour:
   m_ObjectHideFlags: 0
