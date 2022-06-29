@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: -5292383137277655210}
   - component: {fileID: 8373435323084272716}
   - component: {fileID: -327834222487572218}
+  - component: {fileID: -6385880375483416780}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -348,9 +349,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -974920207406477246}
   shapeSetup: {fileID: 504031472}
-  minScale: {x: 0.3, y: 0.3, z: 0.3}
-  maxScale: {x: 0.6, y: 0.5, z: 0.5}
-  scaleSpeed: 4
-  minRotation: {x: 0, y: 0, z: 0}
-  maxRotation: {x: 0, y: 360, z: 0}
-  rotateSpeed: 2.8
+--- !u!114 &-6385880375483416780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875375580111944820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb046a35f379ae34a86fd5dd9da6f5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeAnimation: {fileID: -327834222487572218}
+  minRotation: {x: 0, y: 0, z: 360}
+  maxRotation: {x: 0, y: 0, z: 360}
+  rotateSpeed: 2.5
