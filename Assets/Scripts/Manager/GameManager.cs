@@ -19,10 +19,10 @@ namespace Manager
         }
 
         [Header("Actions")]
-        public Action GameIdleAction;
-        public Action GamePlayingAction;
-        public Action GameLoseAction;
-        public Action GameWinAction;
+        public static Action GameIdleAction;
+        public static Action GamePlayingAction;
+        public static Action GameLoseAction;
+        public static Action GameWinAction;
 
         private void Awake()
         {

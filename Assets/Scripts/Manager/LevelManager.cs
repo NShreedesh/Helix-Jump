@@ -1,6 +1,5 @@
 using System;
 using Static;
-using UI;
 using UnityEngine;
 
 namespace Manager
@@ -13,7 +12,8 @@ namespace Manager
         [SerializeField] 
         private int maxLevel;
 
-        public Action<int> OnLevelChange;
+        [Header("Actions")]
+        public static Action<int> OnLevelChange;
 
         public void SaveLevel()
         {

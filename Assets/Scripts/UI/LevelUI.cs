@@ -10,13 +10,9 @@ namespace UI
         [SerializeField]
         private TMP_Text levelText;
 
-        [Header("Manager")]
-        [SerializeField] 
-        private LevelManager levelManager;
-
         private void Start()
         {
-            levelManager.OnLevelChange += ChangeLevelText;
+            LevelManager.OnLevelChange += ChangeLevelText;
         }
 
         private void ChangeLevelText(int levelNumber)
@@ -26,7 +22,7 @@ namespace UI
 
         private void OnDisable()
         {
-            levelManager.OnLevelChange -= ChangeLevelText;
+            LevelManager.OnLevelChange -= ChangeLevelText;
         }
     }
 }

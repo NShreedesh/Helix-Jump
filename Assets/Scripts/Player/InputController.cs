@@ -12,22 +12,17 @@ namespace Player
         public float MousePress { get; private set; }
         public Vector2 Delta { get; private set; }
 
-        [Header("Managers")] 
-        [SerializeField] 
-        private GameManager gameManager;
-
         private void Awake()
         {
             _input = new Input();
-
         }
 
         private void Start()
         {
-            gameManager.GameLoseAction += DisableInputController;
-            gameManager.GameWinAction += DisableInputController;
-            gameManager.GameIdleAction += DisableInputController;
-            gameManager.GamePlayingAction += EnableInputController;
+            GameManager.GameLoseAction += DisableInputController;
+            GameManager.GameWinAction += DisableInputController;
+            GameManager.GameIdleAction += DisableInputController;
+            GameManager.GamePlayingAction += EnableInputController;
         }
 
         private void OnEnable()
@@ -45,13 +40,14 @@ namespace Player
         {
             _input.Player.Disable(); 
             
-            gameManager.GameLoseAction -= DisableInputController;
-            gameManager.GameWinAction -= DisableInputController;
-            gameManager.GameIdleAction -= DisableInputController;
-            gameManager.GamePlayingAction -= EnableInputController;
+            GameManager.GameLoseAction -= DisableInputController;
+            GameManager.GameWinAction -= DisableInputController;
+            GameManager.GameIdleAction -= DisableInputController;
+            GameManager.GamePlayingAction -= EnableInputController;
         }
         
         private void EnableInputController() => _input.Player.Enable();
+        
         private void DisableInputController() => _input.Player.Disable();
     }
 }

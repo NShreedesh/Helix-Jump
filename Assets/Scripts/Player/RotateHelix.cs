@@ -11,7 +11,7 @@ namespace Player
         private InputController inputController;
 
         [Header("Actions")] 
-        public Action OnSpeedChanged;
+        public static Action OnSpeedChanged;
 
         [Header("Helix Rotation Values")]
         [SerializeField]

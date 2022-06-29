@@ -39,7 +39,7 @@ namespace UI
             openMenuButton.onClick.AddListener(OpenMenuButtonClicked);
             closeMenuButton.onClick.AddListener(CloseMenuButtonClicked);
             
-            rotateHelix.OnSpeedChanged += OnSpeedValueChanged;
+            RotateHelix.OnSpeedChanged += OnSpeedValueChanged;
         }
 
         private void OnSliderValueChanged(float value)
@@ -76,7 +76,7 @@ namespace UI
             openMenuButton.onClick.RemoveAllListeners();
             closeMenuButton.onClick.RemoveAllListeners();
             
-            rotateHelix.OnSpeedChanged -= OnSpeedValueChanged;
+            RotateHelix.OnSpeedChanged -= OnSpeedValueChanged;
         }
     }
 }

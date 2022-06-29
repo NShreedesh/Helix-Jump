@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +9,6 @@ namespace UI
     public class WinLoseUI : MonoBehaviour
     {
         [Header("Managers")]
-        [SerializeField] 
-        private GameManager gameManager;
         [SerializeField] 
         private LevelManager levelManager;
         
@@ -27,10 +26,10 @@ namespace UI
 
         private void Start()
         {
-            gameManager.GameIdleAction += NoWinLoseUI;
-            gameManager.GamePlayingAction += NoWinLoseUI;
-            gameManager.GameLoseAction += LoseStateOn;
-            gameManager.GameWinAction += WinStateOn;
+            GameManager.GameIdleAction += NoWinLoseUI;
+            GameManager.GamePlayingAction += NoWinLoseUI;
+            GameManager.GameLoseAction += LoseStateOn;
+            GameManager.GameWinAction += WinStateOn;
             
             startAgainButton.onClick.AddListener(ReloadLevel);
             nextLevelButton.onClick.AddListener(LoadLevel);
@@ -65,12 +64,13 @@ namespace UI
         
         private void OnDisable()
         {
-            gameManager.GameLoseAction -= LoseStateOn;
-            gameManager.GameWinAction -= WinStateOn;
+            GameManager.GameIdleAction -= NoWinLoseUI;
+            GameManager.GamePlayingAction -= NoWinLoseUI;
+            GameManager.GameLoseAction -= LoseStateOn;
+            GameManager.GameWinAction -= WinStateOn;
             
             startAgainButton.onClick.RemoveAllListeners();
             nextLevelButton.onClick.RemoveAllListeners();
         }
-
     }
 }
