@@ -1,5 +1,5 @@
+using System;
 using Static;
-using TMPro;
 using UnityEngine;
 
 namespace Manager
@@ -9,23 +9,21 @@ namespace Manager
         [SerializeField]
         private int score;
         [SerializeField]
-        private TMP_Text scoreText;
-
-        [SerializeField] 
         private int highScore;
-        [SerializeField]
-        private TMP_Text highScoreText;
+
+        public static Action<int> OnScoreUpdate;
+        public static Action<int> OnHighScoreUpdate;
 
         private void Start()
         {
             LoadHighScore();
-            ChangeScoreUI(scoreText, score);
+            OnScoreUpdate?.Invoke(score);
         }
 
         public void UpdateScore(int scoreIncrementValue)
         {
             score += scoreIncrementValue;
-            ChangeScoreUI(scoreText, score);
+            OnScoreUpdate?.Invoke(score);
             SaveScore();
         }
 
@@ -34,7 +32,7 @@ namespace Manager
             highScore = PlayerPrefs.HasKey(SaveLoadTagManager.HighScoreKey)
                 ? PlayerPrefs.GetInt(SaveLoadTagManager.HighScoreKey, highScore)
                 : 0;
-            ChangeScoreUI(highScoreText, highScore);
+            OnHighScoreUpdate?.Invoke(highScore);
         }
 
         private void SaveScore()
@@ -43,12 +41,7 @@ namespace Manager
 
             highScore = score;
             PlayerPrefs.SetInt(SaveLoadTagManager.HighScoreKey, highScore);
-            ChangeScoreUI(highScoreText, highScore);
-        }
-        
-        private void ChangeScoreUI(TMP_Text whichScoreText, int scoreValue)
-        {
-            whichScoreText.text = scoreValue.ToString();
+            OnHighScoreUpdate?.Invoke(highScore);
         }
     }
 }

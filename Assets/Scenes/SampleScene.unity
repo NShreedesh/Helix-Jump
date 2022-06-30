@@ -913,9 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  scoreText: {fileID: 535078919}
   highScore: 0
-  highScoreText: {fileID: 1266628169}
 --- !u!1 &444305229
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +925,7 @@ GameObject:
   - component: {fileID: 444305230}
   - component: {fileID: 444305231}
   - component: {fileID: 444305232}
+  - component: {fileID: 444305234}
   - component: {fileID: 444305233}
   m_Layer: 0
   m_Name: GameUIManager
@@ -999,6 +998,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1878998315}
+--- !u!114 &444305234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444305229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7e5555c3f7a9a4197c8cf320a92d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScoreText: {fileID: 1266628169}
+  scoreText: {fileID: 535078919}
 --- !u!1 &452526901
 GameObject:
   m_ObjectHideFlags: 0
