@@ -3,6 +3,8 @@ namespace Static
 {
     public static class TagManager
     {
+        public const string Untagged = "Untagged";
+        
         public const string HelixKill = "HelixKill";
         public const string HelixNonKill = "HelixNonKill";
         public const string HelixPoint = "HelixPoint";

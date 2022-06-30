@@ -1,3 +1,4 @@
+using Cylinder_Scripts;
 using Manager;
 using Static;
 using UnityEngine;
@@ -34,6 +35,15 @@ namespace ShapeScripts
             
             if (collision.gameObject.CompareTag(TagManager.HelixKill))
             {
+                if (shapeSetup.ScoreManager.StoredScore >= 30)
+                {
+                    DamageHelix(collision);
+                    Jump();
+                    Invoke(nameof(CheckJump), 0.5f);
+                    return;
+                }
+                shapeSetup.ScoreManager.ResetStoredScore();
+                
                 Die();
                 shapeSetup.AudioManager.PlayOneShotAudio(deadAudioClip);
             }
@@ -41,6 +51,12 @@ namespace ShapeScripts
             else if (collision.gameObject.CompareTag(TagManager.HelixNonKill))
             {
                 if(!_canJump) return;
+
+                if (shapeSetup.ScoreManager.StoredScore >= 30)
+                {
+                    DamageHelix(collision);
+                }
+                shapeSetup.ScoreManager.ResetStoredScore();
                 
                 Jump();
                 Invoke(nameof(CheckJump), 0.5f);
@@ -110,6 +126,14 @@ namespace ShapeScripts
         private void ColliderOnOff(bool isEnabled)
         {
             col.enabled = isEnabled;
+        }
+        
+        private void DamageHelix(Collision collision)
+        {
+            if (!collision.transform.parent.TryGetComponent<HelixBlast>(out var cylinder)) return;
+            cylinder.DamageHelix();
+            shapeSetup.ScoreManager.UpdateScore(10);
+            shapeSetup.ScoreManager.ResetStoredScore();
         }
         
         private void OnDisable() => CancelInvoke();

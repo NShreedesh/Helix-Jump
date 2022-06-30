@@ -33,7 +33,7 @@ namespace ShapeScripts
             }
         }
 
-        private static void DamageHelixDuringTrigger(Collider other)
+        private void DamageHelixDuringTrigger(Collider other)
         {
             if (!other.transform.parent.TryGetComponent<HelixBlast>(out var cylinder)) return;
             cylinder.DamageHelix();

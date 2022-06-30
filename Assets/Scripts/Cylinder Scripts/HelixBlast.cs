@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Static;
 using UnityEngine;
 
 namespace Cylinder_Scripts
@@ -79,7 +80,8 @@ namespace Cylinder_Scripts
             
             foreach (var col in _allHelixesCollider)
             {
-                col.enabled = false;
+                col.tag = TagManager.Untagged;
+;                col.enabled = false;
             }
             
             foreach (var go in _pointHelixes)
