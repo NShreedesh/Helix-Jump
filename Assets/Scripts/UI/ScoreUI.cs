@@ -11,7 +11,7 @@ namespace UI
         [SerializeField]
         private TMP_Text scoreText;
 
-        private void Start()
+        private void OnEnable()
         {
             ScoreManager.OnScoreUpdate += ChangeScore;
             ScoreManager.OnHighScoreUpdate += ChangeHighScore;

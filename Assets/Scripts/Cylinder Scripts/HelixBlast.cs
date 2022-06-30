@@ -22,6 +22,9 @@ namespace Cylinder_Scripts
         private Color helixBlastColor;
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
 
+        [Header("Flags")]
+        private bool _alreadyDamaged;
+
         private void Start()
         {
             var childCount = transform.childCount;
@@ -50,6 +53,9 @@ namespace Cylinder_Scripts
 
         public void DamageHelix()
         {
+            if (_alreadyDamaged) return;
+
+            _alreadyDamaged = true;
             foreach (var rend in _helixRenderers)
             {
                 var materialPropertyBlock = new MaterialPropertyBlock();

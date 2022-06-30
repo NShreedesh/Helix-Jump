@@ -6,11 +6,14 @@ namespace Manager
 {
     public class ScoreManager : MonoBehaviour
     {
+        [Header("Scores")]
         [SerializeField]
         private int score;
         [SerializeField]
         private int highScore;
+        public int StoredScore { get; private set; }
 
+        [Header("Actions")]
         public static Action<int> OnScoreUpdate;
         public static Action<int> OnHighScoreUpdate;
 
@@ -23,6 +26,7 @@ namespace Manager
         public void UpdateScore(int scoreIncrementValue)
         {
             score += scoreIncrementValue;
+            StoredScore += scoreIncrementValue;
             OnScoreUpdate?.Invoke(score);
             SaveScore();
         }
@@ -42,6 +46,11 @@ namespace Manager
             highScore = score;
             PlayerPrefs.SetInt(SaveLoadTagManager.HighScoreKey, highScore);
             OnHighScoreUpdate?.Invoke(highScore);
+        }
+
+        public void ResetStoredScore()
+        {
+            StoredScore = 0;
         }
     }
 }
