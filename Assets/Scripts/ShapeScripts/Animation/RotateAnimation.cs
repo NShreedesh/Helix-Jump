@@ -15,7 +15,7 @@ namespace ShapeScripts.Animation
         [SerializeField]
         private Vector3 maxRotation = new Vector3(0, 0, 180);
         [SerializeField]
-        private float rotateSpeed = 2;
+        private float rotateSpeed = 1;
 
         public void Awake()
         {
