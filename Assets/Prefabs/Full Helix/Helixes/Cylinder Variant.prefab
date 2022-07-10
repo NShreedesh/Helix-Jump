@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_NonKill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -67,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_Name
       value: HelixPart_NonKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
@@ -125,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_Kill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -181,6 +193,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_Name
       value: HelixPart_Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
@@ -239,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_Kill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -295,6 +315,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_Name
       value: HelixPart_NonKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
@@ -353,6 +377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_Kill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -410,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_Kill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -466,6 +498,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: 9982b31d0a8882a4496eabab9de1fd9c, type: 3}
       propertyPath: m_Name
       value: HelixPart_Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 9982b31d0a8882a4496eabab9de1fd9c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 9982b31d0a8882a4496eabab9de1fd9c, type: 3}
       propertyPath: m_RootOrder
@@ -566,7 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8486681526451530922, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
       propertyPath: m_Name
-      value: Cylinder
+      value: Cylinder Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486681526451530922, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ba7212b20ae8f149a33f6d8ccfc1cd1, type: 3}
@@ -585,6 +625,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_Name
       value: HelixPart_NonKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
@@ -643,6 +687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPart_NonKill
       objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: 0c4f43a125dccdb4ea2dfa77957a7848, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -699,6 +747,10 @@ PrefabInstance:
     - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_Name
       value: HelixPart_Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 196175600220546604, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 716956381890935958, guid: f351eb02b91594848b09ba56784ffcc0, type: 3}
       propertyPath: m_RootOrder
