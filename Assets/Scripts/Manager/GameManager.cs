@@ -26,12 +26,7 @@ namespace Manager
 
         private void Awake()
         {
-            switch (Application.platform)
-            {
-                case RuntimePlatform.Android:
-                    Application.targetFrameRate = 30;
-                    break;
-            }
+            Application.targetFrameRate = 30;
         }
 
         private void Start()
